@@ -9,12 +9,7 @@ use Livewire\Component;
 class FetchPosts extends Component
 {
 
-    // public $posts;
 
-    // public function mount()
-    // {
-    //     $this->posts = 
-    // }
 
     public function render()
     {

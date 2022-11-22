@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\OtherUsersController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +25,7 @@ Route::get('/dashboard', [PostController::class, 'index'])->middleware(['auth', 
 Route::get('/post/{postID}', [PostController::class, 'single'])->middleware(['auth', 'verified'])->name('single.post');
 
 Route::get('/messages/{userID}', [MessageController::class, 'index'])->middleware(['auth', 'verified'])->name('messages');
+
+Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware(['auth', 'verified'])->name('other-users.index');
 
 require __DIR__ . '/auth.php';
