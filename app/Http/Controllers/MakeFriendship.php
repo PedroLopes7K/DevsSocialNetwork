@@ -31,4 +31,12 @@ class MakeFriendship extends Controller
 
         return  to_route('other-users.index');
     }
+
+    public function MyFriendships()
+    {
+        $currentUser = Auth()->user();
+
+        $friendships = Friendship::where('user_receive', $currentUser->id)->where('friends', false)->get();
+        return view('my-friendships', compact('friendships'));
+    }
 }

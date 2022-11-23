@@ -19,7 +19,7 @@
                     <x-nav-link :href="route('other-users.index')" :active="request()->routeIs('other-users.index')">
                         {{ __('Outros Usuarios') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('other-users.index')" :active="request()->routeIs('other-users.index')">
+                    <x-nav-link :href="route('sends-friendship')" :active="request()->routeIs('sends-friendship')">
                         {{ __('Pedidos de Amizade') }}
                     </x-nav-link>
                 </div>
