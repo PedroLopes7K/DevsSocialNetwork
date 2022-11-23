@@ -19,6 +19,9 @@
                     <x-nav-link :href="route('other-users.index')" :active="request()->routeIs('other-users.index')">
                         {{ __('Outros Usuarios') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('other-users.index')" :active="request()->routeIs('other-users.index')">
+                        {{ __('Pedidos de Amizade') }}
+                    </x-nav-link>
                 </div>
             </div>
 
