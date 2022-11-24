@@ -6,6 +6,12 @@
     </h2>
   </x-slot>
 
+  @if (session()->has('success'))
+  <span class="text-green-500">
+    {{ session()->get('success') }}
+  </span>
+  @endif
+
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -13,7 +19,7 @@
           @if(count($friendships) > 0)
           @foreach($friendships as $friendship)
           <div class="my-4">
-            <p>{{ $friendship->user_id}} te enviou uma solicitação de amizade. <a href="" class="text-green-500">Aceitar</a></p>
+            <p>{{ $friendship->user_id}} te enviou uma solicitação de amizade. <a href="{{ route('confirm-friendship', $friendship->user_id)}}" class="text-green-500">Aceitar</a></p>
           </div>
           @endforeach
           @else

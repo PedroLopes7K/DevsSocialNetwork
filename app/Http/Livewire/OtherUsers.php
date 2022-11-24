@@ -19,7 +19,8 @@ class OtherUsers extends Component
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
         $usersFriends = User::whereIn('id', $friends)->get();
-        $outherUsers = User::where('id', '!=', $friends)->where('id', '!=', $currentUser->id)->get();
+        $outherUsers = User::whereNotIn('id', $friends)->where('id', "!=", $currentUser->id)->get();
+
         // $currentUser = Auth()->user();
         // $allUsers = User::where('id', '!=', $currentUser->id)->get();
 

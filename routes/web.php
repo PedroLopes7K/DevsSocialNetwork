@@ -26,6 +26,7 @@ Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(
 
 Route::get('/messages/{userID}', [MessageController::class, 'createChat'])->middleware(['auth', 'verified'])->name('messages');
 Route::get('/make-friendship/{user_id}', [MakeFriendship::class, 'makeFriendship'])->middleware(['auth', 'verified'])->name('make-friendship');
+Route::get('/confirm-friendship/{user_id}', [MakeFriendship::class, 'confirmFriendship'])->middleware(['auth', 'verified'])->name('confirm-friendship');
 Route::get('/my-friendships', [MakeFriendship::class, 'MyFriendships'])->middleware(['auth', 'verified'])->name('sends-friendship');
 
 Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware(['auth', 'verified'])->name('other-users.index');
