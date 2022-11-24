@@ -13,8 +13,7 @@
           @if(count($friendships) > 0)
           @foreach($friendships as $friendship)
           <div class="my-4">
-            <p>{{ $friendship->user_id}} te enviou uma solicitação de amizade.</p>
-            <a href="">Aceitar</a>
+            <p>{{ $friendship->user_id}} te enviou uma solicitação de amizade. <a href="" class="text-green-500">Aceitar</a></p>
           </div>
           @endforeach
           @else
