@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Chat extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'chat_id',
-        'message'
-    ];
+    protected $table = 'chats';
+
+    protected $fillable = ['id', 'user_one_id', 'user_two_id'];
 }

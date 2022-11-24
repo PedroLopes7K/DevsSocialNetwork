@@ -8,19 +8,19 @@ use Livewire\Component;
 
 class SendMessage extends Component
 {
-    public $message, $receiverID;
+    public $message, $chatID;
 
     public function render()
     {
         return view('livewire.send-message');
     }
 
-    public function store($receiverId)
+    public function store($chatId)
     {
         if (!empty($this->message)) {
             Message::create([
                 'user_id' => Auth::id(),
-                'receiver_id' => $receiverId,
+                'chat_id' => $chatId,
                 'message' => $this->message
             ]);
         }

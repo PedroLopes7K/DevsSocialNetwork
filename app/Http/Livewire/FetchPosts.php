@@ -11,9 +11,6 @@ use Livewire\Component;
 
 class FetchPosts extends Component
 {
-
-
-
     public function render()
     {
         $currentUser = Auth()->user();
