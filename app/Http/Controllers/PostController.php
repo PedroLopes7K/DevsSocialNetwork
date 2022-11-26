@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
@@ -28,5 +29,11 @@ class PostController extends Controller
         $posts = Post::where('user_id', $userId)->get();
 
         return view('posts-user', compact('user', 'posts'));
+    }
+
+    public function myPosts()
+    {
+        $posts =  Post::where('user_id', Auth()->user()->id)->get();
+        return view('my-posts', compact('posts'));
     }
 }

@@ -20,14 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/')->middleware(['root']);
 
 Route::get('/dashboard', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/post/{postID}', [PostController::class, 'single'])->middleware(['auth', 'verified'])->name('single.post');
 Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(['auth', 'verified'])->name('user.posts');
+Route::get('/my-posts', [PostController::class, 'myPosts'])->middleware(['auth', 'verified'])->name('my.posts');
 
-Route::get('/messages/{userID}', [MessageController::class, 'createChat'])->middleware(['auth', 'verified'])->name('messages');
 Route::get('/make-friendship/{user_id}', [MakeFriendship::class, 'makeFriendship'])->middleware(['auth', 'verified'])->name('make-friendship');
 Route::get('/confirm-friendship/{user_id}', [MakeFriendship::class, 'confirmFriendship'])->middleware(['auth', 'verified'])->name('confirm-friendship');
 Route::get('/my-friendships', [MakeFriendship::class, 'MyFriendships'])->middleware(['auth', 'verified'])->name('sends-friendship');
+
+Route::get('/messages/{userID}', [MessageController::class, 'createChat'])->middleware(['auth', 'verified'])->name('messages');
 
 Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware(['auth', 'verified'])->name('other-users.index');
 
