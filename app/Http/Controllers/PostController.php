@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\Friendship;
 
 class PostController extends Controller
 {
@@ -24,6 +25,13 @@ class PostController extends Controller
     public function postsUser($userId)
     {
 
+        $currentUser = Auth()->user();
+        $friendship = Friendship::where('user_id', $currentUser->id)->where('user_receive', $userId)->where('friends', true)->first();
+        $friendshipTwo = Friendship::where('user_id', $userId)->where('user_receive', $currentUser->id)->where('friends', true)->first();
+        if (!$friendship && !$friendshipTwo) {
+            session()->flash('warning', 'Vocês ainda não são amigos!');
+            return back();
+        }
 
         $user = User::where('id', $userId)->first();
         $posts = Post::where('user_id', $userId)->get();
