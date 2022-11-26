@@ -22,11 +22,39 @@
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{ $header }}
+            </div>
+        </header>
+        @endif
+
+
+        @if (session()->has('danger'))
+
+        <div class="bg-red-200 mt-4 flex justify-center w-3/6 mx-auto h-[50px] ">
+            <span class="text-red-700 text-center text-xl font-bold my-auto">
+                {{ session()->get('danger') }}
+            </span>
+        </div>
+
+        @endif
+
+
+        @if (session()->has('success'))
+        <div class="bg-green-200 mt-4 flex justify-center w-3/6 mx-auto h-[50px] ">
+            <span class="text-green-700 text-center text-xl font-bold my-auto">
+                {{ session()->get('success') }}
+            </span>
+        </div>
+        @endif
+
+        @if (session()->has('warning'))
+        <div class="bg-yellow-200 mt-4 flex justify-center w-3/6 mx-auto h-[50px] ">
+            <span class="text-yellow-700 text-center text-xl font-bold my-auto">
+                {{ session()->get('warning') }}
+            </span>
+        </div>
         @endif
 
         <!-- Page Content -->

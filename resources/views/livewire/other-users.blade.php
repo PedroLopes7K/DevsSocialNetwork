@@ -1,16 +1,5 @@
 <div>
 
-    @if (session()->has('success'))
-    <span class="text-green-500">
-        {{ session()->get('success') }}
-    </span>
-    @endif
-
-    @if (session()->has('danger'))
-    <span class="text-red-500">
-        {{ session()->get('danger') }}
-    </span>
-    @endif
 
     <div>
         <h1 class="text-gray-700 text-2xl">Amigos:</h1>

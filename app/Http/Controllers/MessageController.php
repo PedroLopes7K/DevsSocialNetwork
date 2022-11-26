@@ -21,6 +21,10 @@ class MessageController extends Controller
 
     public function createChat($userId)
     {
+        if ($userId == Auth()->user()->id) {
+            session()->flash('danger', 'Não é possivél entrar em um chat com seu proprio usuário!');
+            return back();
+        }
         $situationOne = Chat::where('user_one_id', Auth()->user()->id)->where('user_two_id', $userId)->first();
         $situationTwo = Chat::where('user_one_id', $userId)->where('user_two_id', Auth()->user()->id)->first();
 
