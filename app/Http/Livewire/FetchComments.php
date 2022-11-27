@@ -13,7 +13,6 @@ class FetchComments extends Component
     public function render()
     {
         $comments = Comment::with('user')->where('post_id', $this->postId)->get();
-        // dd($comments);
         return view('livewire.fetch-comments', compact('comments'));
     }
 }

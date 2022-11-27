@@ -17,12 +17,10 @@ class FetchPosts extends Component
         $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
         $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
 
-        // Log::info($friendships1);
-        // Log::info($friendships2);
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
         $posts =
             Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
-        // dd($posts);
+
         return view('livewire.fetch-posts', compact('posts'));
     }
 

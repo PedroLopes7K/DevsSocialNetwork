@@ -21,8 +21,7 @@ class OtherUsers extends Component
         $usersFriends = User::whereIn('id', $friends)->get();
         $outherUsers = User::whereNotIn('id', $friends)->where('id', "!=", $currentUser->id)->get();
 
-        // $currentUser = Auth()->user();
-        // $allUsers = User::where('id', '!=', $currentUser->id)->get();
+
 
         return view('livewire.other-users', compact('usersFriends', 'outherUsers'));
     }

@@ -2,7 +2,7 @@
     <form wire:submit.prevent="store" class="grid gap-3">
 
         <div class="grid">
-            <label for="">Image:</label>
+            <label for="">Imagem:</label>
             <input type="file" wire:model="coverImage" class="file:rounded-md file:bg-purple-500 file:text-white rounded-md border file:border-none p-4" id="">
             @error('coverImage')
             <div class="text-red-500">
@@ -11,7 +11,7 @@
             @enderror
         </div>
         <div class="grid">
-            <label for="">Body:</label>
+            <label for="">Contéudo:</label>
             <textarea wire:model="body" id="" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="5"></textarea>
             @error('body')
             <div class="text-red-500">
