@@ -1,5 +1,5 @@
 <div wire:poll.8000ms>
-    @foreach ($posts as $post)
+    @foreach ($postsFriends as $post)
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
@@ -11,7 +11,7 @@
                         <img src="{{ asset('storage/app/public/posts' . $post->image) }}" alt="" class="w-[300px]">
                     </div>
                     <div class="flex justify-between">
-                        <a href="{{ route('messages', $post->user->id) }}" class="text-lg font-bold">{{ $post->user->username }}</a>
+                        <a href="{{ route('user.posts', $post->user->id) }}" class="text-lg font-bold">{{ $post->user->username }}</a>
                         <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
                     </div>
 
