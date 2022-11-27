@@ -11,8 +11,7 @@
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
         <div class="p-6 bg-white border-b border-gray-200">
-          <!-- 
-          <a href="{{ URL::previous() == route('my.posts') ?  route('dashboard') : URL::previous()   }}" class="bg-purple-500  p-2 mx-2 my-10  text-white text-lg font-bold rounded">Voltar</a> -->
+
           <livewire:button-previous-page :currentRoute="route('my.posts') " />
 
           @if (count($posts) > 0)

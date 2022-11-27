@@ -18,10 +18,6 @@
     </div>
 
     <div class="py-4 mb-4">
-
-
-
         <livewire:fetch-posts />
-
     </div>
 </x-app-layout>
