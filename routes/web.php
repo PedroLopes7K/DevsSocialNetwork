@@ -4,6 +4,7 @@ use App\Http\Controllers\MakeFriendship;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OtherUsersController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,7 @@ Route::get('/my-friendships', [MakeFriendship::class, 'MyFriendships'])->middlew
 Route::get('/messages/{userID}', [MessageController::class, 'createChat'])->middleware(['auth', 'verified'])->name('messages');
 
 Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware(['auth', 'verified'])->name('other-users.index');
+
+Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('profile.index');
 
 require __DIR__ . '/auth.php';
