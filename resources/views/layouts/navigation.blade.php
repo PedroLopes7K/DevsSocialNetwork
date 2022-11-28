@@ -25,6 +25,9 @@
                     <x-nav-link :href="route('myfriends.index')" :active="request()->routeIs('myfriends.index')">
                         {{ __('Meus Amigos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('chats.index')" :active="request()->routeIs('chats.index')">
+                        {{ __('Conversas') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('sends-friendship')" :active="request()->routeIs('sends-friendship')">
                         {{ __('Pedidos de Amizade') }}
                     </x-nav-link>
@@ -51,13 +54,14 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
+                            <x-dropdown-link :href="route('profile.index')">
+                                {{ __('Perfil') }}
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Sair') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('profile.index')">
-                                {{ __('Perfil') }}
-                            </x-dropdown-link>
+
                         </form>
                     </x-slot>
 

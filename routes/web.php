@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\MakeFriendship;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MyFriendsController;
@@ -37,5 +38,7 @@ Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware([
 Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('profile.index');
 
 Route::get('/my-friends', [MyFriendsController::class, 'index'])->middleware(['auth', 'verified'])->name('myfriends.index');
+
+Route::get('/chats', [ChatController::class, 'index'])->middleware(['auth', 'verified'])->name('chats.index');
 
 require __DIR__ . '/auth.php';
