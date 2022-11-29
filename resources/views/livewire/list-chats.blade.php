@@ -22,8 +22,6 @@
             <livewire:send-message :chatID="$chat->id" />
 
         </div>
-
-
         @endforeach
         @endif
     </div>

@@ -30,6 +30,7 @@ class FetchPosts extends Component
 
             return view('livewire.fetch-posts', compact('postsFriends'));
         }
+
         $postsFriends = $this->posts;
         return view('livewire.fetch-posts', compact('postsFriends'));
     }
