@@ -12,10 +12,11 @@ class AddPostFeed extends Component
     use WithFileUploads;
 
     public $body, $coverImage;
+    // 'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
 
     protected $rules = [
         'body' => 'required',
-        'coverImage' => 'image'
+        'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
     ];
 
     public function updated($propertyName)

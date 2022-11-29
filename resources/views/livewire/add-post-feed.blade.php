@@ -11,8 +11,8 @@
             @enderror
         </div> -->
         <div class="grid mb-2">
-            <label for="">Contéudo:</label>
-            <textarea wire:model="body" id="" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="5"></textarea>
+            <label for="body" class="my-2"><b>Que tal postar algum conteúdo?:</b></label>
+            <textarea wire:model="body" id="body" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="5"></textarea>
             @error('body')
             <div class="text-red-500">
                 {{ $message }}
@@ -23,19 +23,31 @@
                 <div>
 
                 </div>
-                <div class="flex space-x-2">
+                <div class="flex space-x-2 text-center align-center ">
                     <div>
-                        User Icon
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fa-solid fa-users mx-2"></i>Marcar Usuários
+
+                        </label>
                     </div>
 
                     <div>
-                        Foto Icon
+                        <label for="file-upload" class="custom-file-upload">
+                            <i class="fa-solid fa-image mx-2"></i> Imagens
+                        </label>
+                        <input id="file-upload" type="file" wire:model="coverImage" />
+                        @error('coverImage')
+                        <div class="text-red-500">
+                            {{ $message }}
+                        </div>
+                        @enderror
+
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <button type="submit" wire:submit.prevent="store" class="bg-purple-500 text-white px-6 py-2 rounded-md">Post</button>
+            <button type="submit" wire:submit.prevent="store" class="bg-purple-500 text-white px-6 py-2 rounded-md">Postar</button>
         </div>
     </form>
 </div>

@@ -4,3 +4,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
