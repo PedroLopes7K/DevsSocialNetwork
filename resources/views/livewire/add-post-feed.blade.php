@@ -26,14 +26,14 @@
                 <div class="flex space-x-2 text-center align-center ">
                     <div>
                         <label for="file-upload" class="custom-file-upload">
-                            <i class="fa-solid fa-users mx-2"></i>Marcar Usuários
+                            <i class="fa-solid fa-users mx-2 text-xl"></i>Marcar Usuários
 
                         </label>
                     </div>
 
                     <div>
-                        <label for="file-upload" class="custom-file-upload">
-                            <i class="fa-solid fa-image mx-2"></i> Imagens
+                        <label for="file-upload" class="custom-file-upload ">
+                            <i class="fa-solid fa-image mx-2 text-xl "></i>Adicionar Imagens
                         </label>
                         <input id="file-upload" type="file" wire:model="coverImage" />
                         @error('coverImage')
