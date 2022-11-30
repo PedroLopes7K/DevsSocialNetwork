@@ -8,7 +8,7 @@
             </span>
         @enderror
         <div>
-            <button class="px-6 py-4 rounded-md bg-purple-500 text-white">Comment</button>
+            <button class="px-6 py-4 rounded-md bg-purple-500 text-white">Comentar</button>
         </div>
     </form>
 </div>
