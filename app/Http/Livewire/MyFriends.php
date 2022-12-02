@@ -14,9 +14,8 @@ class MyFriends extends Component
     public function mount()
     {
 
-        $currentUser = Auth()->user();
-        $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
-        $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
+        $friendships1 = Friendship::where('user_receive', Auth()->user()->id)->where('friends', true)->get()->pluck('user_id');
+        $friendships2 = Friendship::where('user_id', Auth()->user()->id)->where('friends', true)->get()->pluck('user_receive');
 
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
