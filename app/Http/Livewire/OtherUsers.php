@@ -15,6 +15,8 @@ class OtherUsers extends Component
     public $search;
     public $outherUsers;
     public $friends;
+    public $users = array();
+
 
 
 
@@ -29,11 +31,18 @@ class OtherUsers extends Component
         $this->friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
         $this->outherUsers = User::whereNotIn('id', $this->friends)->where('id', "!=", Auth()->user()->id)->get();
+        $this->users = $this->outherUsers;
     }
     public function updateSearch($value)
     {
+        $filter = array();
 
-        $this->outherUsers = User::whereNotIn('id', $this->friends)->where(DB::raw('lower(name)'), 'like', '%' . strtolower($value) . '%')->where('id', "!=", Auth()->user()->id)->get();
+        foreach ($this->outherUsers as $v) {
+            if (stristr($v->name, $value))
+                $filter[] = $v;
+        }
+        $this->users = $filter;
+        // $this->outherUsers = User::whereNotIn('id', $this->friends)->where(DB::raw('lower(name)'), 'like', '%' . strtolower($value) . '%')->where('id', "!=", Auth()->user()->id)->get();
     }
     public function render()
     {
