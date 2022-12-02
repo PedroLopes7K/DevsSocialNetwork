@@ -1,11 +1,13 @@
 <div class="border-b border-gray-200 flex" x-data="{ chat: 0 }">
     <div class="border-2 border-color-black h-60 w-2/6">
-        @if(isset($chats))
+        @if(count($chats) > 0)
         @foreach($chats as $chat)
         <div x-on:click="chat = {{$chat->id}}" class="p-2 bg-gray-200 mb-2 cursor-pointer">
             <b>Chat: {{$chat->userOne->name}} e {{$chat->userTwo->name}} </b>
         </div>
         @endforeach
+        @else
+        <h2 class=" text-2xl font-bold text-center mt-8">Nenhuma conversa...</h2>
         @endif
 
     </div>
