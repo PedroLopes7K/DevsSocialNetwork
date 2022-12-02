@@ -6,30 +6,37 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Friendship;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class OtherUsers extends Component
 {
 
     public $search;
+    public $outherUsers;
+    public $friends;
 
-    public function updateSearch($value)
+
+
+    protected $listeners = ['inputUpdate' => 'updateSearch'];
+
+
+    public function mount()
     {
-        info($value);
-    }
-    public function render()
-    {
-        $currentUser = Auth()->user();
         $friendships1 = Friendship::where('user_receive',  Auth()->user()->id)->where('friends', true)->get()->pluck('user_id');
         $friendships2 = Friendship::where('user_id',  Auth()->user()->id)->where('friends', true)->get()->pluck('user_receive');
 
-        $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
+        $this->friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
-        // $usersFriends = User::whereIn('id', $friends)->get();
-        $outherUsers = User::whereNotIn('id', $friends)->where('id', "!=", Auth()->user()->id)->get();
+        $this->outherUsers = User::whereNotIn('id', $this->friends)->where('id', "!=", Auth()->user()->id)->get();
+    }
+    public function updateSearch($value)
+    {
 
-
-
-        return view('livewire.other-users', compact('outherUsers'));
+        $this->outherUsers = User::whereNotIn('id', $this->friends)->where(DB::raw('lower(name)'), 'like', '%' . strtolower($value) . '%')->where('id', "!=", Auth()->user()->id)->get();
+    }
+    public function render()
+    {
+        return view('livewire.other-users');
     }
 }
