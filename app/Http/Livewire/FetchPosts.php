@@ -13,26 +13,26 @@ class FetchPosts extends Component
 {
 
     public $posts;
+    public $postsFriends;
 
     public function mount($posts = null)
     {
         $this->posts = $posts;
-    }
-    public function render()
-    {
+
         if (!$this->posts) {
             $currentUser = Auth()->user();
             $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
             $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
 
             $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
-            $postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
-
-            return view('livewire.fetch-posts', compact('postsFriends'));
+            $this->postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
+        } else {
+            $this->postsFriends = $this->posts;
         }
-
-        $postsFriends = $this->posts;
-        return view('livewire.fetch-posts', compact('postsFriends'));
+    }
+    public function render()
+    {
+        return view('livewire.fetch-posts');
     }
 
     public function addLikeToPost($post_id)
