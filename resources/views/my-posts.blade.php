@@ -18,6 +18,9 @@
           <h1>
             <div wire:poll>
               @foreach ($posts as $post)
+              @php
+              $images = App\Models\Image::where('post_id', $post->id)->get();
+              @endphp
               <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                   <div class="p-6 bg-white border-b border-gray-200">
@@ -25,8 +28,15 @@
                       <div class="text-sm">
                         {{ $post->body }}
                       </div>
-                      <div class="grid place-items-center">
-                        <img src="{{ asset('storage/app/public/posts' . $post->image) }}" alt="" class="w-[300px]">
+                      <!-- place-items-center -->
+                      <div class="grid grid-cols-2 ">
+                        @if(count($images) > 0)
+                        @foreach($images as $image)
+                        <img src="{{ asset('storage/' . $image->image) }}" alt="" class="w-[300px] h-[290px]">
+                        @endforeach
+
+                        @endif
+
                       </div>
                       <div class="flex justify-between">
                         <a href="{{ route('messages', $post->user->id) }}" class="text-lg font-bold">{{ $post->user->username }}</a>

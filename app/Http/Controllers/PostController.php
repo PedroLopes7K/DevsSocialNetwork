@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use App\Models\Friendship;
 
 class PostController extends Controller
@@ -42,7 +42,6 @@ class PostController extends Controller
     public function myPosts()
     {
         $posts =  Post::where('user_id', Auth()->user()->id)->get();
-        info($posts);
         return view('my-posts', compact('posts'));
     }
 }

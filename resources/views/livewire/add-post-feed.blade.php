@@ -35,7 +35,7 @@
                         <label for="file-upload" class="custom-file-upload ">
                             <i class="fa-solid fa-image mx-2 text-xl "></i>Adicionar Imagens
                         </label>
-                        <input id="file-upload" type="file" wire:model="coverImage" />
+                        <input id="file-upload" multiple type="file" wire:model="coverImage" />
                         @error('coverImage')
                         <div class="text-red-500">
                             {{ $message }}

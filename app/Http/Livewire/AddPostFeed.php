@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -34,23 +35,30 @@ class AddPostFeed extends Component
     {
         $this->validate();
 
-        // $imagePath = uniqid() . '-' . 'image' . '.' . $this->coverImage->extension();
-
-        // $this->coverImage->move(public_path('storage\livewire-tmp'), $imagePath);
-        $imagePath =  $this->coverImage->store('images', 'public');
-
-
-        // auth()->user()->posts()->create([
-        //     'image' => $imagePath,
-        //     'body' => $this->body,
-        // ]);
-
-        Post::create([
-            'image' => $imagePath,
+        $post = Post::create([
+            'image' => '...',
             'body' => $this->body,
             'user_id' => Auth()->user()->id
         ]);
-        session()->flash('success', 'Post created');
+
+        foreach ($this->coverImage as  $image) {
+            $path = $image->store('images', 'public');
+            Image::create([
+                'image' => $path,
+                'post_id' => $post->id
+            ]);
+        }
+
+        // $imagePath =  $this->coverImage->store('images', 'public');
+
+
+
+        // Post::create([
+        //     'image' => '...',
+        //     'body' => $this->body,
+        //     'user_id' => Auth()->user()->id
+        // ]);
+        session()->flash('success', 'Post Criado');
 
         $this->body = '';
         $this->coverImage = '';
