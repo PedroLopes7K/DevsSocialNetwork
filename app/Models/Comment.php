@@ -20,6 +20,17 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 
+    public function likes()
+    {
+        return $this->hasMany(LikeComment::class);
+    }
+
+    public function userLikedComment()
+    {
+        return (bool) $this->likes->where('user_id', auth()->id())->count();
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
