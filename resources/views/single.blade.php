@@ -43,6 +43,7 @@
                             <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
+
                     <!-- FIM  -->
                     <div class="pt-6">
                         <livewire:fetch-comments :postId="$post->id" />
