@@ -1,7 +1,7 @@
 <div class="mt-8">
     <div class="mt-10">
         <h1 class="text-gray-700 text-2xl">Outros Usuários:</h1>
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="search">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold my-2" for="search">
             Pesquise pelo nome:
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-white rounded-lg py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="search" type="text" placeholder="pesquisar...." wire:keydown="updateSearch($event.target.value)">

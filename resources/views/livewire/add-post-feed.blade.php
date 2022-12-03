@@ -14,7 +14,6 @@
         </div> -->
         <div class="grid mb-2">
             <label for="body" class="my-2"><b>Que tal postar algum conteúdo?</b></label>
-            <!-- class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="10" -->
             <textarea wire:model="body" id="body" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="10"></textarea>
             @error('body')
             <div class="text-red-500">

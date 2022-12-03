@@ -10,6 +10,10 @@ class MyFriends extends Component
 {
 
     public $myFriends;
+    public $users = array();
+
+
+    protected $listeners = ['inputUpdate' => 'updateSearch'];
 
     public function mount()
     {
@@ -20,7 +24,20 @@ class MyFriends extends Component
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
         $this->myFriends = User::whereIn('id', $friends)->get();
+        $this->users = $this->myFriends;
     }
+
+    public function updateSearch($value)
+    {
+        $filter = array();
+
+        foreach ($this->myFriends as $v) {
+            if (stristr($v->name, $value))
+                $filter[] = $v;
+        }
+        $this->users = $filter;
+    }
+
     public function render()
     {
         return view('livewire.my-friends');

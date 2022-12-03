@@ -17,9 +17,6 @@ class OtherUsers extends Component
     public $friends;
     public $users = array();
 
-
-
-
     protected $listeners = ['inputUpdate' => 'updateSearch'];
 
 
@@ -42,7 +39,6 @@ class OtherUsers extends Component
                 $filter[] = $v;
         }
         $this->users = $filter;
-        // $this->outherUsers = User::whereNotIn('id', $this->friends)->where(DB::raw('lower(name)'), 'like', '%' . strtolower($value) . '%')->where('id', "!=", Auth()->user()->id)->get();
     }
     public function render()
     {
