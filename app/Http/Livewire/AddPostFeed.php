@@ -16,7 +16,7 @@ class AddPostFeed extends Component
 
     protected $rules = [
         'body' => 'required',
-        'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        'coverImage.*' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
     ];
 
     public function updated($propertyName)
