@@ -29,7 +29,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($images as $image)
                                 <div class="swiper-slide">
-                                    <img class="object-cover w-[300px] h-[290px] mx-auto mb-4" src="{{ asset('storage/' . $image->image) }}" alt="image" />
+                                    <img class="object-cover w-[350px] h-[340px] mx-auto mb-4" src="{{ asset('storage/' . $image->image) }}" alt="image" />
                                 </div>
                                 @endforeach
 
