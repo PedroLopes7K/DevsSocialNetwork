@@ -4,14 +4,15 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="grid gap-5">
-                    <div class="text-sm">
-                        {{ $post->body }}
+                    <div class="text-lg">
+                        <b>{{$post->title}}</b>
+
                     </div>
                     <div class="grid place-items-center">
                         <img src="{{ asset('storage/app/public/posts' . $post->image) }}" alt="" class="w-[300px]">
                     </div>
                     <div class="flex justify-between">
-                        <a href="{{ route('user.posts', $post->user->id) }}" class="text-lg font-bold">{{ $post->user->username }}</a>
+                        <a href="{{ route('user.posts', $post->user->id) }}" class="text-lg font-bold">{{ ucfirst($post->user->username )}}</a>
                         <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
                     </div>
 

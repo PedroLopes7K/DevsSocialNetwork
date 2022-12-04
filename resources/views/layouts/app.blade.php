@@ -77,12 +77,7 @@
                 <li>
                     <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre</a>
                 </li>
-                <!-- <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-                </li> -->
+
                 <li>
                     <a href="#" class="hover:underline">Contato</a>
                 </li>
@@ -90,19 +85,10 @@
         </footer>
 
     </div>
-
     @livewireScripts
     @fcScripts
     @stack('scripts')
 
-
-    <!-- Summernote JS - CDN Link -->
-    >
-    <!-- //Summernote JS - CDN Link -->
-
-
 </body>
-
-
 
 </html>
