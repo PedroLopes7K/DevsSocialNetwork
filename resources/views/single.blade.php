@@ -16,16 +16,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- COMEÇO -->
-                    <!-- <div class="grid gap-5"> -->
-                    <div class="">
+                    <div class="grid gap-5">
+                        <!-- <div class=""> -->
                         <div class="text-lg my-4">
                             {{ $post->body }}
                         </div>
-                        <!-- <div class="grid place-items-center">
+                        <div class="grid place-items-center">
                             <img src="{{ asset('storage/' . $post->image) }}" alt="" class="w-[300px]">
-                        </div> -->
+                        </div>
 
-                        <div class="swiper mySwiper ">
+                        <!-- <div class="swiper mySwiper ">
                             <div class="swiper-wrapper">
                                 @foreach($images as $image)
                                 <div class="swiper-slide">
@@ -37,7 +37,7 @@
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-pagination"></div>
-                        </div>
+                        </div> -->
                         <div class="flex justify-between">
                             <span class="text-lg font-bold">{{ $post->user->username }}</span>
                             <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>

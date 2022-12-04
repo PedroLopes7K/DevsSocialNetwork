@@ -36,28 +36,22 @@ class AddPostFeed extends Component
         $this->validate();
 
         $post = Post::create([
-            'image' => '...',
+            // 'image' =>  $this->coverImage->store('images', 'public'),
+            'image' =>  '..',
             'body' => $this->body,
             'user_id' => Auth()->user()->id
         ]);
 
+
         foreach ($this->coverImage as  $image) {
-            $path = $image->store('images', 'public');
+            // $path = $image->store('images', 'public');
             Image::create([
-                'image' => $path,
+                'image' => $image->store('images', 'public'),
                 'post_id' => $post->id
             ]);
         }
 
-        // $imagePath =  $this->coverImage->store('images', 'public');
 
-
-
-        // Post::create([
-        //     'image' => '...',
-        //     'body' => $this->body,
-        //     'user_id' => Auth()->user()->id
-        // ]);
         session()->flash('success', 'Post Criado');
 
         $this->body = '';
