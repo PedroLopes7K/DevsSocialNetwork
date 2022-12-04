@@ -18,8 +18,8 @@
                     <!-- COMEÇO -->
                     <div class="grid gap-5">
                         <!-- <div class=""> -->
-                        <div class="text-lg my-4">
-                            {{ $post->body }}
+                        <div class="text-lg my-4 break-all">
+                            {!! $post->body !!}
                         </div>
                         <div class="grid place-items-center">
                             <img src="{{ asset('storage/' . $post->image) }}" alt="" class="w-[300px]">

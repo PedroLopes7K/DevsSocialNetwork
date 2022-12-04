@@ -16,13 +16,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
-    <!-- Bootstrap 5 CDN Link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Summernote CSS - CDN Link -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <!-- //Summernote CSS - CDN Link -->
 
 
     @stack('styles')
@@ -102,25 +96,13 @@
     @stack('scripts')
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- Summernote JS - CDN Link -->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#sommernote").summernote({
-                height: 200
-            });
-            $('.dropdown-toggle').dropdown();
-        });
-    </script>
+    >
     <!-- //Summernote JS - CDN Link -->
 
 
 </body>
 
-<!-- summernote css/js -->
 
 
 </html>
