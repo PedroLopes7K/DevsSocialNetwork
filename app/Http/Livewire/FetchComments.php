@@ -20,18 +20,15 @@ class FetchComments extends Component
 
     public function addLikeToComment($comment_id)
     {
-        $commentOwn = Comment::where('id', $comment_id)->where('user_id', Auth()->user()->id)->first();
-        if ($commentOwn) {
+
+        $checkLiked = LikeComment::where('user_id', Auth()->user()->id)->where('comment_id', $comment_id)->first();
+        if ($checkLiked) {
+            LikeComment::where('user_id', Auth()->user()->id)->where('comment_id', $comment_id)->delete();
         } else {
-            $checkLiked = LikeComment::where('user_id', Auth()->user()->id)->where('comment_id', $comment_id)->first();
-            if ($checkLiked) {
-                LikeComment::where('user_id', Auth()->user()->id)->where('comment_id', $comment_id)->delete();
-            } else {
-                LikeComment::create([
-                    'user_id' => Auth()->user()->id,
-                    'comment_id' => $comment_id
-                ]);
-            }
+            LikeComment::create([
+                'user_id' => Auth()->user()->id,
+                'comment_id' => $comment_id
+            ]);
         }
     }
 }
