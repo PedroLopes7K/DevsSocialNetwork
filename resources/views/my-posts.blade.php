@@ -26,7 +26,8 @@
                   <div class="p-6 bg-white border-b border-gray-200">
                     <div class="grid gap-5 break-all">
                       <div class="text-lg ">
-                        {!! $post->body !!}
+                        <!-- {!! $post->body !!} -->
+                        <b>{{$post->title}}</b>
                       </div>
                       <!-- place-items-center -->
                       <!-- <div class="grid grid-cols-2 gap-">
@@ -39,7 +40,7 @@
 
                       </div> -->
                       <div class="flex justify-between">
-                        <a href="{{ route('messages', $post->user->id) }}" class="text-lg font-bold">{{ $post->user->username }}</a>
+                        <a href="{{ route('messages', $post->user->id) }}" class="text-sm">{{ ucfirst($post->user->username) }}</a>
                         <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
                       </div>
 

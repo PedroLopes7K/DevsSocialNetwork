@@ -1,21 +1,30 @@
 <div>
+    <!-- <label for="text-post" class="my-2 text-gray-700"><b>Que tal postar algum conteúdo?</b></label> -->
+    <h2 class="my-2 text-gray-700"><b>Que tal postar algum conteúdo?</b></h2>
     <form wire:submit.prevent="store" class="">
         <div class="grid mb-2">
-            <label for="text-post" class="my-2 text-gray-700"><b>Que tal postar algum conteúdo?</b></label>
-            <!-- <textarea wire:model="body" id="text-post" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="7"></textarea> -->
+            <label class="block text-gray-700  mb-2" for="username">
+                <b>Título:</b>
+            </label>
+            <input wire:model="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="titulo">
 
-            <x-quill wire:model="body" />
 
-            @error('body')
-            <div class="text-red-500">
-                {{ $message }}
+
+
+            <div class="mt-2">
+                <label for="text-post" class="my-2 text-gray-700"><b>Conteúdo:</b></label>
+                <!-- <textarea wire:model="body" id="text-post" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="7"></textarea> -->
+                <x-quill wire:model="body" />
+                @error('body')
+                <div class="text-red-500">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
-            @enderror
-
             <div class="mt-2">
                 <div class="mb-3 w-96">
                     <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> <i class="fa-solid fa-image mx-2 text-xl "></i><b>Adicionar Imagem:</b></label>
-                    <input wire:model="coverImage" class="form-control
+                    <input multiple wire:model="coverImage" class="form-control
                     
                     block
                     w-full
