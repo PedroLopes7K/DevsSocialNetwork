@@ -14,6 +14,7 @@ class FetchComments extends Component
     public $answer;
     public $modalComment = false;
     public $comment;
+    public $commentId;
     public $textComment  = '';
 
     public function render()
@@ -39,10 +40,14 @@ class FetchComments extends Component
     public function sendComment()
     {
         info($this->answer);
+        info($this->commentId);
+
+        $this->answer = '';
     }
     public function openModal($commentId)
     {
         $this->comment = Comment::where('id', $commentId)->first();
+        $this->commentId = $this->comment->id;
         $this->textComment = $this->comment->body;
         $this->modalComment = true;
     }

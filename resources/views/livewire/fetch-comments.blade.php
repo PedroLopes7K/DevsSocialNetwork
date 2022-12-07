@@ -73,7 +73,7 @@
                     <div class="bg-gray-50  px-4 py-3 sm:flex sm:flex-col sm:space-y-4 sm:px-6">
 
                         <div class="flex space-x-2">
-                            <input type="text" id="first_name" class="bg-gray-50 w-4/6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Responder.." required>
+                            <input wire:model="answer" type="text" id="answer" class="bg-gray-50 w-4/6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Responder.." required>
                             <button wire:click="sendComment" class="px-2 py-2 rounded-md w-2/6 bg-purple-500 text-white">Enviar</button>
                         </div>
                         <div class="">
