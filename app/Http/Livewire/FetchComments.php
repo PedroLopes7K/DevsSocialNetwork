@@ -11,6 +11,7 @@ class FetchComments extends Component
 {
 
     public $postId;
+    public $answer;
     public $modalComment = false;
     public $comment;
     public $textComment  = '';
@@ -33,6 +34,11 @@ class FetchComments extends Component
                 'comment_id' => $comment_id
             ]);
         }
+    }
+
+    public function sendComment()
+    {
+        info($this->answer);
     }
     public function openModal($commentId)
     {
