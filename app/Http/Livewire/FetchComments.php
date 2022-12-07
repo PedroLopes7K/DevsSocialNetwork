@@ -11,6 +11,9 @@ class FetchComments extends Component
 {
 
     public $postId;
+    public $modalComment = false;
+    public $comment;
+    public $textComment  = '';
 
     public function render()
     {
@@ -30,5 +33,17 @@ class FetchComments extends Component
                 'comment_id' => $comment_id
             ]);
         }
+    }
+    public function openModal($commentId)
+    {
+        $this->comment = Comment::where('id', $commentId)->first();
+        $this->textComment = $this->comment->body;
+        $this->modalComment = true;
+    }
+
+    public function closeModal()
+    {
+        $this->textComment = '';
+        $this->modalComment = false;
     }
 }
