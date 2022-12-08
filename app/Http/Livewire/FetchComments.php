@@ -41,8 +41,7 @@ class FetchComments extends Component
 
     public function sendComment()
     {
-        info($this->answer);
-        info($this->commentId);
+
         CommentAnswer::create([
             'user_id' =>  Auth()->user()->id,
             'comment_id' => $this->commentId,
