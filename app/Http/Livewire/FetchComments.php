@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Comment;
+use App\Models\CommentAnswer;
 use App\Models\LikeComment;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -12,6 +13,7 @@ class FetchComments extends Component
 
     public $postId;
     public $answer;
+    public $answersComment;
     public $modalComment = false;
     public $comment;
     public $commentId;
@@ -41,12 +43,19 @@ class FetchComments extends Component
     {
         info($this->answer);
         info($this->commentId);
+        CommentAnswer::create([
+            'user_id' =>  Auth()->user()->id,
+            'comment_id' => $this->commentId,
+            'body' => $this->answer
+        ]);
 
         $this->answer = '';
+        $this->modalComment = false;
     }
     public function openModal($commentId)
     {
         $this->comment = Comment::where('id', $commentId)->first();
+        $this->answersComment = CommentAnswer::where('comment_id', $commentId)->get();
         $this->commentId = $this->comment->id;
         $this->textComment = $this->comment->body;
         $this->modalComment = true;

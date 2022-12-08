@@ -46,22 +46,31 @@
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
-                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div wire:poll class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="sm:flex sm:items-start">
 
                             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                 <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Comentario:</h3>
-                                <div class="mt-2 bg-gray-500 p-2 w-full">
+                                <div class="mt-2 bg-gray-500 p-2 w-full rounded">
+                                    <p class="text-sm text-white">{{ ucfirst($comment->user->username )}}:</p>
+
                                     <p class="text-sm text-white">{{$textComment}}</p>
                                 </div>
 
                                 <div class="mt-4">
                                     <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Respostas:</h3>
 
-                                    <div class="bg-slate-100 shadow-md my-2 p-2">
-                                        <!-- <p class="text-sm  font-thin">{{$textComment}}</p> -->
+                                    @if(count($answersComment) > 0)
+                                    @foreach($answersComment as $answer)
+                                    <div class="bg-slate-100 shadow-md my-4 p-2">
+                                        <p class="text-sm">{{ ucfirst($answer->user->username )}}:</p>
+                                        <p class=" font-thin">{{$answer->body}}</p>
                                     </div>
+                                    @endforeach
+
+                                    @endif
+
                                 </div>
 
 
