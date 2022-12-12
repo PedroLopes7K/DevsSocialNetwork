@@ -10,6 +10,7 @@ class MyPosts extends Component
 
 
     public $posts;
+    public $modal = false;
 
     public function mount()
     {
