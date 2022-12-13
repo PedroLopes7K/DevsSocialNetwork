@@ -11,6 +11,7 @@ class MyPosts extends Component
 
     public $posts;
     public $deleteModal = false;
+    public $updateModal = false;
     public Post $postDelete;
 
     public function mount()

@@ -24,6 +24,7 @@ Route::get('/')->middleware(['root']);
 
 Route::get('/dashboard', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/post/{postID}', [PostController::class, 'single'])->middleware(['auth', 'verified'])->name('single.post');
+Route::get('/post/edit/{postID}', [PostController::class, 'updatePost'])->middleware(['auth', 'verified'])->name('update.post');
 Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(['auth', 'verified'])->name('user.posts');
 Route::get('/my-posts', [PostController::class, 'myPosts'])->middleware(['auth', 'verified'])->name('my.posts');
 

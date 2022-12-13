@@ -44,4 +44,10 @@ class PostController extends Controller
         $posts =  Post::where('user_id', Auth()->user()->id)->get();
         return view('my-posts', compact('posts'));
     }
+
+    public function updatePost($postID)
+    {
+        $post = Post::find($postID);
+        return view('edit-post', compact('post'));
+    }
 }
