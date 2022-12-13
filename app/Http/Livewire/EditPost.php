@@ -37,11 +37,12 @@ class EditPost extends Component
         return view('livewire.edit-post');
     }
 
-    public function updatePost()
+    public function store()
     {
+        $this->validate();
+
 
         try {
-            $this->validate();
 
             Post::where('id', $this->idPost)->update([
                 'body' => $this->body,

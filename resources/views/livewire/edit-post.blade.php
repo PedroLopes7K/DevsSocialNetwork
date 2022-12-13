@@ -42,7 +42,7 @@
             </div>
         </div>
         <div>
-            <button type="submit" wire:submit.prevent="updatePost" class="bg-purple-500 text-white px-6 py-2 rounded-md">Postar</button>
+            <button type="submit" wire:submit.prevent="store" class="bg-purple-500 text-white px-6 py-2 rounded-md">Editar</button>
         </div>
     </form>
 
