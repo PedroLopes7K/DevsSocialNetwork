@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Exception;
 
 class MyPosts extends Component
 {
@@ -33,9 +34,15 @@ class MyPosts extends Component
 
     public function deletePost()
     {
-        Post::where('id', $this->postDelete->id)->delete();
-        session()->flash('success', 'Post Deletado!');
-        return redirect(route('my.posts'));
+
+        try {
+            Post::where('id', $this->postDelete->id)->delete();
+            session()->flash('success', 'Post Deletado!');
+            return redirect(route('my.posts'));
+        } catch (Exception $e) {
+            session()->flash('danger', 'Falha ao deletar post!');
+            return redirect(route('my.posts'));
+        }
     }
 
 
