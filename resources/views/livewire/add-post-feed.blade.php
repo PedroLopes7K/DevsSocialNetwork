@@ -3,17 +3,15 @@
     <h2 class="my-2 text-gray-700"><b>Que tal postar algum conteúdo?</b></h2>
     <form wire:submit.prevent="store" class="">
         <div class="grid mb-2">
+            <!-- <textarea wire:model="body" id="text-post" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="7"></textarea> -->
             <label class="block text-gray-700  mb-2" for="username">
                 <b>Título:</b>
             </label>
             <input wire:model="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="titulo">
 
-
-
-
             <div class="mt-2">
                 <label for="text-post" class="my-2 text-gray-700"><b>Conteúdo:</b></label>
-                <!-- <textarea wire:model="body" id="text-post" class="border border-gray-300 focus:outline-purple-500 rounded-md" cols="10" rows="7"></textarea> -->
+
                 <x-quill wire:model="body" />
                 @error('body')
                 <div class="text-red-500">
