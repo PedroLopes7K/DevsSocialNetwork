@@ -20,7 +20,9 @@ class RootMiddleware
         // return $next($request);
         if (auth()->user()) {
             return to_route('dashboard');
+        } else {
+            return to_route('dashboard');
         }
-        return to_route('login');
+        return to_route('dashboard');
     }
 }

@@ -13,21 +13,25 @@ class FetchPosts extends Component
 {
 
     public $posts;
+    public $allPosts;
     public $postsFriends;
 
     public function mount($posts = null)
     {
         $this->posts = $posts;
+        if (Auth()->user()) {
+            if (!$this->posts) {
+                $currentUser = Auth()->user();
+                $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
+                $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
 
-        if (!$this->posts) {
-            $currentUser = Auth()->user();
-            $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
-            $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
-
-            $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
-            $this->postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
+                $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
+                $this->postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
+            } else {
+                $this->postsFriends = $this->posts;
+            }
         } else {
-            $this->postsFriends = $this->posts;
+            $this->allPosts = Post::all();
         }
     }
     public function render()

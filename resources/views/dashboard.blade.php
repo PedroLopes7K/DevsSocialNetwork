@@ -1,9 +1,20 @@
 <x-app-layout>
+    @if(Auth()->user())
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard - Bem-vindo(a)') }} {{ Auth()->user()->name}}!
         </h2>
     </x-slot>
+    @else
+
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard - Bem-vindo(a)') }} Convidado(a)!
+        </h2>
+    </x-slot>
+    @endif
+
+    @if(Auth()->user())
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -16,6 +27,7 @@
             </div>
         </div>
     </div>
+    @endif
 
     <div class="py-4 mb-4">
         <livewire:fetch-posts />

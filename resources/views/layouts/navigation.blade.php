@@ -15,6 +15,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if(Auth()->user())
+
                     <x-nav-link :href="route('my.posts')" :active="request()->routeIs('my.posts')">
                         {{ __('Meus Posts') }}
                     </x-nav-link>
@@ -31,8 +33,10 @@
                     <x-nav-link :href="route('sends-friendship')" :active="request()->routeIs('sends-friendship')">
                         {{ __('Pedidos de Amizade') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
+            @if(Auth()->user())
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -109,4 +113,6 @@
             </div>
         </div>
     </div>
+    @endif
+
 </nav>
