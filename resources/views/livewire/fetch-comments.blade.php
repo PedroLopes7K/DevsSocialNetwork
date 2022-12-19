@@ -80,11 +80,12 @@
                         PEGAR O ID DO COMENTARIO ATUAL E GRAVAR EM UMA TABELA DE RESPOSTAS COM O ID DO COMENTARIO RESPONDIDO, E A RESPOSTA EM SÍ -->
                     </div>
                     <div class="bg-gray-50  px-4 py-3 sm:flex sm:flex-col sm:space-y-4 sm:px-6">
-
+                        @if(Auth()->user())
                         <div class="flex space-x-2">
                             <input wire:model="answer" type="text" id="answer" class="bg-gray-50 w-4/6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Responder.." required>
                             <button wire:click="sendComment" class="px-2 py-2 rounded-md w-2/6 bg-purple-500 text-white">Enviar</button>
                         </div>
+                        @endif
                         <div class="">
                             <button wire:click="closeModal" type="button" class="inline-flex w-2/6 justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Fechar</button>
                         </div>

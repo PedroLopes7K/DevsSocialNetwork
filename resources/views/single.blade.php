@@ -53,10 +53,12 @@
 
                     </div>
 
+                    @if(Auth()->user())
                     <div class="pt-6">
                         <hr>
                         <livewire:add-comment :postId="$post->id" />
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
