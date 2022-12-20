@@ -31,6 +31,11 @@ class Comment extends Model
         return (bool) $this->likes->where('user_id', auth()->id())->count();
     }
 
+    public function answers()
+    {
+        return $this->hasMany(CommentAnswer::class);
+    }
+
 
     public function user()
     {
