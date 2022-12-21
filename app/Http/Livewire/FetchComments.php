@@ -39,7 +39,7 @@ class FetchComments extends Component
         }
     }
 
-    public function sendComment()
+    public function sendAnswer()
     {
 
         CommentAnswer::create([
@@ -50,6 +50,12 @@ class FetchComments extends Component
 
         $this->answer = '';
         $this->modalComment = false;
+    }
+
+    public function deleteAnswer($answerId)
+    {
+        CommentAnswer::where('id', $answerId)->delete();
+        $this->answersComment = CommentAnswer::where('comment_id',  $this->commentId)->get();
     }
     public function openModal($commentId)
     {

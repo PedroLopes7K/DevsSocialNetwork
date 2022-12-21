@@ -67,9 +67,16 @@
 
                                     @if(count($answersComment) > 0)
                                     @foreach($answersComment as $answer)
-                                    <div class="bg-slate-100 shadow-md my-4 p-2">
-                                        <p class="text-sm">{{ ucfirst($answer->user->username )}}:</p>
-                                        <p class=" font-thin">{{$answer->body}}</p>
+                                    <div class="flex justify-between">
+                                        <div class="bg-slate-100 shadow-md my-4 p-2">
+
+                                            <p class="text-sm">{{ ucfirst($answer->user->username )}}:</p>
+                                            <p class=" font-thin">{{$answer->body}}</p>
+                                        </div>
+                                        @if(Auth()->user()->id == $answer->user_id)
+                                        <button wire:click="deleteAnswer({{$answer->id}})" class="ml-4"><B>X</B></button>
+
+                                        @endif
                                     </div>
                                     @endforeach
 
@@ -87,7 +94,7 @@
                         @if(Auth()->user())
                         <div class="flex space-x-2">
                             <input wire:model="answer" type="text" id="answer" class="bg-gray-50 w-4/6 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Responder.." required>
-                            <button wire:click="sendComment" class="px-2 py-2 rounded-md w-2/6 bg-purple-500 text-white">Enviar</button>
+                            <button wire:click="sendAnswer" class="px-2 py-2 rounded-md w-2/6 bg-purple-500 text-white">Enviar</button>
                         </div>
                         @endif
                         <div class="">
