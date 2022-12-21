@@ -8,10 +8,11 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class FetchPosts extends Component
 {
-
+    use WithPagination;
     public $posts;
     public $allPosts;
     public $postsFriends;
@@ -31,12 +32,11 @@ class FetchPosts extends Component
                 $this->postsFriends = $this->posts;
             }
         } else {
-            $this->allPosts = Post::all();
         }
     }
     public function render()
     {
-        return view('livewire.fetch-posts');
+        return view('livewire.fetch-posts', ['testPosts' => Post::paginate(5)]);
     }
 
     public function addLikeToPost($post_id)

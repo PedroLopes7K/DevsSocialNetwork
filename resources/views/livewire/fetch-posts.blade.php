@@ -37,7 +37,7 @@
     </div>
     @endforeach
     @else
-    @foreach ($allPosts as $post)
+    @foreach ($testPosts as $post)
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
@@ -73,6 +73,10 @@
         </div>
     </div>
     @endforeach
-
+    <div class="flex">
+        <div class="my-4 w-2/6 mx-auto">
+            {!! $testPosts->links() !!}
+        </div>
+    </div>
     @endif
 </div>
