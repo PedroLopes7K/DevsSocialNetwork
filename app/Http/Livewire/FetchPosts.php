@@ -15,11 +15,29 @@ class FetchPosts extends Component
     use WithPagination;
     public $posts;
     public $allPosts;
-    public $postsFriends;
+    public $postsFriendsF;
 
     public function mount($posts = null)
     {
-        $this->posts = $posts;
+        // $this->posts = $posts;
+        // if (Auth()->user()) {
+        //     if (!$this->posts) {
+        //         $currentUser = Auth()->user();
+        //         $friendships1 = Friendship::where('user_receive', $currentUser->id)->where('friends', true)->get()->pluck('user_id');
+        //         $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
+
+        //         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
+        //         $this->postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
+        //     } else {
+        //         $this->postsFriends = $this->posts;
+        //     }
+        // } else {
+        // $this->allPosts = Post::all();
+        // }
+    }
+    public function render()
+    {
+
         if (Auth()->user()) {
             if (!$this->posts) {
                 $currentUser = Auth()->user();
@@ -27,15 +45,14 @@ class FetchPosts extends Component
                 $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
 
                 $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
-                $this->postsFriends = Post::whereIn('user_id', $friends)->with('user')->with('likes')->latest()->get();
+                $postsFriends = Post::whereIn('user_id', $friends)->paginate(5);
+
+                return view('livewire.fetch-posts', ['postsFriends' => $postsFriends]);
             } else {
-                $this->postsFriends = $this->posts;
+                $postsFriends = $this->posts->paginate(5);
+                return view('livewire.fetch-posts', ['postsFriends' => $postsFriends]);
             }
-        } else {
         }
-    }
-    public function render()
-    {
         return view('livewire.fetch-posts', ['testPosts' => Post::paginate(5)]);
     }
 

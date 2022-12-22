@@ -36,6 +36,11 @@
         </div>
     </div>
     @endforeach
+    <div class="flex">
+        <div class="my-4 w-2/6 mx-auto">
+            {!! $postsFriends->links() !!}
+        </div>
+    </div>
     @else
     @foreach ($testPosts as $post)
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
