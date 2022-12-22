@@ -1,5 +1,6 @@
 <div wire:poll.8000ms>
     @if(Auth()->user())
+    @if(count($postsFriends) > 0)
     @foreach ($postsFriends as $post)
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -42,6 +43,16 @@
         </div>
     </div>
     @else
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200 text-center">
+                <h1 class="text-2xl"><b>Nenhum Post...</b></h1>
+            </div>
+        </div>
+    </div>
+    @endif
+    @else
+    @if(count($testPosts) > 0)
     @foreach ($testPosts as $post)
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -78,10 +89,20 @@
         </div>
     </div>
     @endforeach
+
     <div class="flex">
         <div class="my-4 w-2/6 mx-auto">
             {!! $testPosts->links() !!}
         </div>
     </div>
+    @else
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200 text-center">
+                <h1 class="text-2xl"><b>Nenhum Post...</b></h1>
+            </div>
+        </div>
+    </div>
+    @endif
     @endif
 </div>
