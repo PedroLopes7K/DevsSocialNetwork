@@ -7,6 +7,7 @@ use App\Http\Controllers\MyFriendsController;
 use App\Http\Controllers\OtherUsersController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/')->middleware(['root']);
 
 Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/post/{postID}', [PostController::class, 'single'])->name('single.post');
 Route::get('/post/edit/{postID}', [PostController::class, 'updatePost'])->middleware(['auth', 'verified'])->name('update.post');
 Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(['auth', 'verified'])->name('user.posts');
