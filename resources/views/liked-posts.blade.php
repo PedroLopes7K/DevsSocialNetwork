@@ -6,10 +6,7 @@
   </x-slot>
 
 
-  <h1>Posts curtidos</h1>
-  <h1>Posts curtidos</h1>
-  <h1>Posts curtidos</h1>
-  <h1>Posts curtidos</h1>
+  <livewire:liked-posts />
 
 
 
