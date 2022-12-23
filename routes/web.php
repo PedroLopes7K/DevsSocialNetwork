@@ -29,6 +29,7 @@ Route::get('/post/{postID}', [PostController::class, 'single'])->name('single.po
 Route::get('/post/edit/{postID}', [PostController::class, 'updatePost'])->middleware(['auth', 'verified'])->name('update.post');
 Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(['auth', 'verified'])->name('user.posts');
 Route::get('/my-posts', [PostController::class, 'myPosts'])->middleware(['auth', 'verified'])->name('my.posts');
+Route::get('/liked-posts', [PostController::class, 'postsLiked'])->middleware(['auth', 'verified'])->name('liked.posts');
 
 Route::get('/make-friendship/{user_id}', [MakeFriendship::class, 'makeFriendship'])->middleware(['auth', 'verified'])->name('make-friendship');
 Route::get('/confirm-friendship/{user_id}', [MakeFriendship::class, 'confirmFriendship'])->middleware(['auth', 'verified'])->name('confirm-friendship');

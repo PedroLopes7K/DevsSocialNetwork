@@ -45,6 +45,10 @@ class PostController extends Controller
         return view('my-posts', compact('posts'));
     }
 
+    public function postsLiked()
+    {
+        return view('liked-posts',);
+    }
     public function updatePost($postID)
     {
         $post = Post::find($postID);
