@@ -24,6 +24,9 @@
                         {{ __('Posts Curtidos') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('liked.posts')" :active="request()->routeIs('liked.posts')">
+                        {{ __('Sessões') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('other-users.index')" :active="request()->routeIs('other-users.index')">
                         {{ __('Outros Usuarios') }}
                     </x-nav-link>
