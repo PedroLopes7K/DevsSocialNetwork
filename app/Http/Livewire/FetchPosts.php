@@ -45,11 +45,11 @@ class FetchPosts extends Component
                 $friendships2 = Friendship::where('user_id', $currentUser->id)->where('friends', true)->get()->pluck('user_receive');
 
                 $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
-                $postsFriends = Post::whereIn('user_id', $friends)->paginate(5);
+                $postsFriends = Post::whereIn('user_id', $friends)->with('user', 'likes')->paginate(5);
 
                 return view('livewire.fetch-posts', ['postsFriends' => $postsFriends]);
             } else {
-                $postsFriends = $this->posts->paginate(5);
+                $postsFriends = $this->posts->with('user', 'likes')->paginate(5);
                 return view('livewire.fetch-posts', ['postsFriends' => $postsFriends]);
             }
         }
