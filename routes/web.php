@@ -8,6 +8,7 @@ use App\Http\Controllers\OtherUsersController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::get('/post/edit/{postID}', [PostController::class, 'updatePost'])->middle
 Route::get('/posts/{userId}', [PostController::class, 'postsUser'])->middleware(['auth', 'verified'])->name('user.posts');
 Route::get('/my-posts', [PostController::class, 'myPosts'])->middleware(['auth', 'verified'])->name('my.posts');
 Route::get('/liked-posts', [PostController::class, 'postsLiked'])->middleware(['auth', 'verified'])->name('liked.posts');
+Route::get('/sections', [SectionsController::class, 'index'])->middleware(['auth', 'verified'])->name('section.index');
 
 Route::get('/make-friendship/{user_id}', [MakeFriendship::class, 'makeFriendship'])->middleware(['auth', 'verified'])->name('make-friendship');
 Route::get('/confirm-friendship/{user_id}', [MakeFriendship::class, 'confirmFriendship'])->middleware(['auth', 'verified'])->name('confirm-friendship');
