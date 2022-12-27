@@ -5,21 +5,9 @@
     </h2>
   </x-slot>
 
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-
-        <div class="p-6 bg-white border-b border-gray-200">
-
-          <div class="mx-2 my-8">
-            <a href="" class="bg-purple-500  p-2 text-white text-lg font-bold rounded">Criar Sessão</a>
-          </div>
+  <livewire:section.section />
 
 
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="py-4 mb-4">
 
