@@ -16,7 +16,7 @@
         </div>
         @endforeach
         @else
-        <h2>Nenhum usuario encontado....</h2>
+        <h2>Nenhum usuario encontrado....</h2>
         @endif
     </div>
 
