@@ -12,7 +12,6 @@ class ListSection extends Component
     public function mount()
     {
         $this->sections = Section::all();
-        info($this->sections);
     }
     public function render()
     {

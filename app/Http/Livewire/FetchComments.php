@@ -50,8 +50,6 @@ class FetchComments extends Component
 
         $this->answer = '';
         $this->answersComment = CommentAnswer::where('comment_id',  $this->commentId)->get();
-
-        // $this->modalComment = false;
     }
 
     public function deleteAnswer($answerId)

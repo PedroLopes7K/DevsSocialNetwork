@@ -37,10 +37,6 @@ class MyPosts extends Component
 
         try {
             Post::where('id', $this->postDelete->id)->delete();
-            // $this->posts =  Post::where('user_id', Auth()->user()->id)->get();
-            // $this->deleteModal = false;
-
-
             session()->flash('success', 'Post Deletado!');
             return redirect(route('my.posts'));
         } catch (Exception $e) {

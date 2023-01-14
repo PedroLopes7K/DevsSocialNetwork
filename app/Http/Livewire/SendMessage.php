@@ -18,7 +18,6 @@ class SendMessage extends Component
 
     public function store($chatId)
     {
-
         try {
             if (!empty($this->message)) {
                 Message::create([
