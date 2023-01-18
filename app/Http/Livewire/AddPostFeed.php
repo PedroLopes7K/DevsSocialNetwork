@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Post;
 use App\Models\Image;
 use App\Models\Section;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Exception;

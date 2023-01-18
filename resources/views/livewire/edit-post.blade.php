@@ -21,7 +21,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="mt-2">
+            <div class="mt-2 flex justify-around">
                 <div class="mb-3 w-96">
                     <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> <i class="fa-solid fa-image mx-2 text-xl "></i><b>Adicionar Imagem:</b></label>
                     <input multiple wire:model="coverImage" class="form-control
@@ -40,6 +40,16 @@
                     ease-in-out
                     m-0
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <label for="section" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sessão do Post</label>
+                    <select id="section" wire:model="section" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Escolha uma opção</option>
+                        @foreach($sections as $section)
+                        <option value="{{$section->name}}">{{$section->name}}</option>
+                        @endforeach
+
+                    </select>
                 </div>
             </div>
         </div>

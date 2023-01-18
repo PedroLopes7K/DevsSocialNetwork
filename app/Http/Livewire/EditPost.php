@@ -6,20 +6,21 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Post;
 use App\Models\Image;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Section;
 
 class EditPost extends Component
 {
 
     use WithFileUploads;
 
-    public $body, $coverImage, $title, $idPost;
+    public $body, $coverImage, $title, $idPost, $sections, $section;
     // 'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
     public function mount($post)
     {
         $this->idPost = $post->id;
         $this->body = $post->body;
         $this->title = $post->title;
+        $this->sections = Section::all();
     }
     protected $rules = [
         'body' => 'required',
