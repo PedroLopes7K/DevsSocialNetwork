@@ -18,9 +18,10 @@
                             <div class="bg-white  overflow-hidden shadow-sm sm:rounded-lg">
                                 <div class="p-6 bg-white border-b border-gray-200">
                                     <div class="grid gap-5 break-all">
-                                        <div class="text-lg ">
+                                        <div class="text-lg flex justify-between">
                                             <!-- {!! $post->body !!} -->
                                             <b>{{$post->title}}</b>
+                                            <p>Sessão: <b>{{$post->section}}</b></p>
                                         </div>
                                         <!-- place-items-center -->
                                         <!-- <div class="grid grid-cols-2 gap-">
