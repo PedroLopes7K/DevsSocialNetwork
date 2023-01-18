@@ -1,4 +1,6 @@
 <div>
+    <livewire:button-previous-page :currentRoute="route('update.post',$idPost )" />
+
     <form wire:submit.prevent="store" class="">
         <div class="grid mb-2">
             <label class="block text-gray-700  mb-2" for="username">
