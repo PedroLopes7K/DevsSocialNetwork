@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use App\Models\Image;
+use App\Models\Section;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,7 +14,7 @@ class AddPostFeed extends Component
 {
     use WithFileUploads;
 
-    public $body, $coverImage, $title;
+    public $body, $coverImage, $title, $section, $sections;
     // 'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
 
     protected $rules = [
@@ -30,6 +31,8 @@ class AddPostFeed extends Component
 
     public function render()
     {
+        $this->sections = Section::all();
+
         return view('livewire.add-post-feed');
     }
 
@@ -40,10 +43,11 @@ class AddPostFeed extends Component
         try {
             $post = Post::create([
                 // 'image' =>  $this->coverImage->store('images', 'public'),
-                'image' =>  '..',
-                'body' => $this->body,
-                'title' => $this->title,
-                'user_id' => Auth()->user()->id
+                'image'       =>  '..',
+                'body'        => $this->body,
+                'title'       => $this->title,
+                'user_id'     => Auth()->user()->id,
+                'section'     => $this->section
             ]);
 
             foreach ($this->coverImage as  $image) {
