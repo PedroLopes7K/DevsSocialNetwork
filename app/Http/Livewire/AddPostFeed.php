@@ -41,14 +41,16 @@ class AddPostFeed extends Component
         $this->validate();
 
         try {
-            $post = Post::create([
+            $request =    [
                 // 'image' =>  $this->coverImage->store('images', 'public'),
                 'image'       =>  '..',
                 'body'        => $this->body,
                 'title'       => $this->title,
                 'user_id'     => Auth()->user()->id,
                 'section'     => $this->section
-            ]);
+            ];
+            $post = Post::create($request);
+
 
             foreach ($this->coverImage as  $image) {
                 Image::create([
@@ -63,7 +65,7 @@ class AddPostFeed extends Component
             return redirect()->route('dashboard');
         } catch (Exception $e) {
 
-
+            info($e);
             $this->reset();
             session()->flash('danger', 'Erro ao adicionar post!');
             return redirect()->route('dashboard');
