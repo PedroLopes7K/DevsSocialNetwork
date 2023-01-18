@@ -13,13 +13,14 @@ class EditPost extends Component
 
     use WithFileUploads;
 
-    public $body, $coverImage, $title, $idPost, $sections, $section;
+    public $body, $coverImage, $title, $idPost, $sections, $sectionEdit;
     // 'coverImage' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
     public function mount($post)
     {
         $this->idPost = $post->id;
         $this->body = $post->body;
         $this->title = $post->title;
+        $this->sectionEdit = $post->section;
         $this->sections = Section::all();
     }
     protected $rules = [
