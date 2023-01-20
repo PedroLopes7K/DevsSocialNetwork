@@ -21,6 +21,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function sections()
+    {
+        return $this->hasOne(Section::class, 'id', 'section');
+    }
     public function images()
     {
         return $this->hasMany(Image::class, 'id');

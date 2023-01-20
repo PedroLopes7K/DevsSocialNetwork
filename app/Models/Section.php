@@ -12,4 +12,9 @@ class Section extends Model
     protected $table = 'sections';
 
     protected $fillable = ['id', 'name'];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

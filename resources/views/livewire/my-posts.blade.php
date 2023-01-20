@@ -21,7 +21,7 @@
                                         <div class="text-lg flex justify-between">
                                             <!-- {!! $post->body !!} -->
                                             <b>{{$post->title}}</b>
-                                            <p>Sessão: <b>{{$post->section}}</b></p>
+                                            <p>Sessão: <b>{{$post->sections->name}}</b></p>
                                         </div>
                                         <!-- place-items-center -->
                                         <!-- <div class="grid grid-cols-2 gap-">
