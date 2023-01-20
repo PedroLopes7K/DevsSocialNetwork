@@ -49,6 +49,7 @@ class EditPost extends Component
             Post::where('id', $this->idPost)->update([
                 'body' => $this->body,
                 'title' => $this->title,
+                'section' => $this->sectionEdit,
             ]);
 
             Image::where('post_id', $this->idPost)->delete();
