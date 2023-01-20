@@ -35,6 +35,7 @@ Route::get('/liked-posts', [PostController::class, 'postsLiked'])->middleware(['
 
 // SECTION CONTROLLER
 Route::get('/sections', [SectionsController::class, 'index'])->middleware(['auth', 'verified'])->name('section.index');
+Route::get('/section/posts/{sectionId}', [SectionsController::class, 'postsOfSection'])->middleware(['auth', 'verified'])->name('section.posts');
 
 // FRIENDSHIP CONTROLLER
 Route::get('/make-friendship/{user_id}', [MakeFriendship::class, 'makeFriendship'])->middleware(['auth', 'verified'])->name('make-friendship');

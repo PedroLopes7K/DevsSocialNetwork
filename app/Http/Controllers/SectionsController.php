@@ -10,4 +10,9 @@ class SectionsController extends Controller
     {
         return view('sections.index');
     }
+
+    public function postsOfSection($sectionId)
+    {
+        dd($sectionId);
+    }
 }
