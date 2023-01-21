@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Section;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class PostsSection extends Component
 {
     public function render()
     {
-        return view('livewire.posts-section');
+        return view('livewire.section.posts-section');
     }
 }
