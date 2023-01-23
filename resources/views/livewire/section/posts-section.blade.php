@@ -1,6 +1,9 @@
 @if(count($posts) > 0)
 @foreach($posts as $post)
 <div class="grid gap-5">
+    <div class="mx-2 my-8">
+        <a href="{{ route('section.index')}}" class="bg-purple-500  p-2 text-white text-lg font-bold rounded">Voltar</a>
+    </div>
     <div class="text-lg">
         <b>{{$post->title}}</b>
 
@@ -31,6 +34,9 @@
 @endforeach
 @else
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-5">
+    <div class="mx-2 my-8">
+        <a href="{{ URL::previous()}}" class="bg-purple-500  p-2 text-white text-lg font-bold rounded">Voltar</a>
+    </div>
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white border-b border-gray-200 text-center">
             <h1 class="text-2xl"><b>Nenhum Post na sessão: {{$section->name}}.</b></h1>
