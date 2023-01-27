@@ -7,15 +7,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3">
                 <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                     <div>
-                        <p class="font-bold text-gray-700 text-xl">22</p>
+                        <p class="font-bold text-gray-700 text-xl">{{$myFriends}}</p>
                         <p class="text-gray-400">Amigos</p>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-700 text-xl">10</p>
-                        <p class="text-gray-400">Fotos</p>
+                        <p class="font-bold text-gray-700 text-xl">{{$posts}}</p>
+                        <p class="text-gray-400">Posts</p>
                     </div>
                     <div>
-                        <p class="font-bold text-gray-700 text-xl">89</p>
+                        <p class="font-bold text-gray-700 text-xl">{{$comments}}</p>
                         <p class="text-gray-400">Comentarios</p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="mt-20 text-center border-b pb-12">
-                <h1 class="text-4xl font-medium text-gray-700">Pedro Lopes, <span class="font-light text-gray-500">21</span></h1>
+                <h1 class="text-4xl font-medium text-gray-700">{{ucfirst($name)}} <span class="font-light text-gray-500">21</span></h1>
                 <p class="font-light text-gray-600 mt-3">Belo Horizonte, Brasil</p>
 
                 <p class="mt-8 text-gray-500">Desenvolvedor - Trato Tech</p>
