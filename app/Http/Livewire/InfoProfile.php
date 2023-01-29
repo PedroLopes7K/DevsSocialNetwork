@@ -17,6 +17,7 @@ class InfoProfile extends Component
     public $posts;
     public $comments;
     public $myFriends;
+    public $editPhoto;
 
 
     public function mount($user)
@@ -34,6 +35,11 @@ class InfoProfile extends Component
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
         $this->myFriends = User::whereIn('id', $friends)->get()->count();
+    }
+
+    public function updatePhoto()
+    {
+        $this->editPhoto = !$this->editPhoto;
     }
     public function render()
     {

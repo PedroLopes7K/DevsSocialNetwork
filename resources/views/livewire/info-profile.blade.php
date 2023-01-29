@@ -2,6 +2,7 @@
     <!-- <h1>Nome: {{$name}}</h1>
     <h1>Email: {{$email}}</h1>
     <h1>Username: {{$username}}</h1> -->
+    @if($editPhoto == false)
     <div class="p-16">
         <div class="p-8 bg-white shadow mt-24">
             <div class="grid grid-cols-1 md:grid-cols-3">
@@ -28,7 +29,7 @@
                 </div>
 
                 <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-                    <button class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                    <button wire:click="updatePhoto" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                         Atualizar Foto
                     </button>
 
@@ -52,4 +53,32 @@
 
         </div>
     </div>
+    @else
+
+    <div class="p-16 flex justify-center">
+        <div class="flex flex-col max-w-md p-6 dark:bg-gray-900 dark:text-gray-100">
+            <img src="https://source.unsplash.com/200x200/?portrait?2" alt="" class="flex-shrink-0 object-cover h-64 rounded-sm sm:h-96 dark:bg-gray-500 aspect-square">
+            <div class="mt-8">
+                <form>
+
+                    <div class="h-6"></div> <!-- just add some space -->
+
+                    <!-- the second file input -->
+                    <label>
+                        <input type="file" class="text-sm text-grey-500
+            file:mr-5 file:py-3 file:px-10
+            file:rounded-full file:border-0
+            file:text-md file:font-semibold  file:text-white
+            file:bg-gradient-to-r file:from-blue-600 file:to-amber-600
+            hover:file:cursor-pointer hover:file:opacity-80
+          " />
+                    </label>
+
+                    <button>Atualizar foto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @endif
 </div>
