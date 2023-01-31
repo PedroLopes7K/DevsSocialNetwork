@@ -57,7 +57,9 @@
 
     <div class="p-16 flex justify-center">
         <div class="flex flex-col max-w-md p-6 dark:bg-gray-900 dark:text-gray-100">
-            <img src="https://source.unsplash.com/200x200/?portrait?2" alt="" class="flex-shrink-0 object-cover h-64 rounded-sm sm:h-96 dark:bg-gray-500 aspect-square">
+            <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl flex items-center justify-center text-indigo-500">
+                <img src="https://source.unsplash.com/150x150/?portrait?3" alt="" class="w-48 h-48 mx-auto rounded-full dark:bg-gray-500 aspect-square">
+            </div>
             <div class="mt-8">
                 <form>
 
@@ -73,8 +75,10 @@
             hover:file:cursor-pointer hover:file:opacity-80
           " />
                     </label>
+                    <div class="flex justify-center mt-6">
 
-                    <button>Atualizar foto</button>
+                        <button class="px-4 py-2 rounded-md bg-purple-500 text-white">Atualizar foto</button>
+                    </div>
                 </form>
             </div>
         </div>
