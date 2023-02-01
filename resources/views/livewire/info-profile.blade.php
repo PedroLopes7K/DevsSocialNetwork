@@ -22,9 +22,7 @@
                 </div>
                 <div class="relative">
                     <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                        </svg>
+                        <img src="{{ asset('storage/' . $user->photo) }}" alt="" class="w-48 h-48 mx-auto rounded-full  aspect-square">
                     </div>
                 </div>
 
@@ -58,7 +56,7 @@
     <div class="p-16 flex justify-center">
         <div class="flex flex-col max-w-md p-6 dark:bg-gray-900 dark:text-gray-100">
             <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl flex items-center justify-center text-indigo-500">
-                <img src="https://source.unsplash.com/150x150/?portrait?3" alt="" class="w-48 h-48 mx-auto rounded-full dark:bg-gray-500 aspect-square">
+                <img src="{{ asset('storage/' . $user->photo) }}" alt="" class="w-48 h-48 mx-auto rounded-full  aspect-square">
             </div>
             <div class="mt-8">
                 <form>
@@ -67,7 +65,7 @@
 
                     <!-- the second file input -->
                     <label>
-                        <input type="file" class="text-sm text-grey-500
+                        <input type="file" wire:model="profileImage" class="text-sm text-grey-500
             file:mr-5 file:py-3 file:px-10
             file:rounded-full file:border-0
             file:text-md file:font-semibold  file:text-white
@@ -77,7 +75,7 @@
                     </label>
                     <div class="flex justify-center mt-6">
 
-                        <button class="px-4 py-2 rounded-md bg-purple-500 text-white">Atualizar foto</button>
+                        <button type="submit" wire:submit.prevent="sendImage" class="px-4 py-2 rounded-md bg-purple-500 text-white">Atualizar foto</button>
                     </div>
                 </form>
             </div>
