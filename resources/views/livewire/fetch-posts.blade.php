@@ -14,7 +14,7 @@
                         <img src="{{ asset('storage/app/public/posts' . $post->image) }}" alt="" class="w-[300px]">
                     </div>
                     <div class="flex justify-between">
-                        <a href="{{ route('user.posts', $post->user->id) }}" class="text-lg font-bold">{{ ucfirst($post->user->username )}}</a>
+                        <a href="{{ route('profile.other-user', $post->user->id) }}" class="text-lg font-bold">{{ ucfirst($post->user->username )}}</a>
                         <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
                     </div>
 

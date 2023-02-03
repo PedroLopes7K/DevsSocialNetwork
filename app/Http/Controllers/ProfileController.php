@@ -15,4 +15,10 @@ class ProfileController extends Controller
 
         return view('profile', compact('user'));
     }
+
+    public function otherUserProfile(Request $request, $id)
+    {
+        $user = User::find($id);
+        return view('other-user-profile', compact('user'));
+    }
 }

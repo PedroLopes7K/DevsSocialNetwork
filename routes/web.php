@@ -50,6 +50,7 @@ Route::get('/other-users', [OtherUsersController::class, 'index'])->middleware([
 
 // PROFILE CONTROLLER
 Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('profile.index');
+Route::get('/other-user-profile/{id}', [ProfileController::class, 'otherUserProfile'])->middleware(['auth', 'verified'])->name('profile.other-user');
 
 //MY FRIENDS CONTROLLER
 Route::get('/my-friends', [MyFriendsController::class, 'index'])->middleware(['auth', 'verified'])->name('myfriends.index');
