@@ -108,35 +108,35 @@
                         <div class="text-gray-700">
                             <div class="grid md:grid-cols-2 text-sm">
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">First Name</div>
-                                    <div class="px-4 py-2">Jane</div>
+                                    <div class="px-4 py-2 font-semibold">Primeiro Nome:</div>
+                                    <div class="px-4 py-2">{{$user->name ?? 'N/A'}}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Last Name</div>
-                                    <div class="px-4 py-2">Doe</div>
+                                    <div class="px-4 py-2 font-semibold">Sobrenome:</div>
+                                    <div class="px-4 py-2">{{$user->last_name ?? 'N/A'}}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Gender</div>
-                                    <div class="px-4 py-2">Female</div>
+                                    <div class="px-4 py-2 font-semibold">Genero:</div>
+                                    <div class="px-4 py-2">{{$user->gender ?? 'N/A'}}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Contact No.</div>
-                                    <div class="px-4 py-2">+11 998001001</div>
+                                    <div class="px-4 py-2 font-semibold">Contato:</div>
+                                    <div class="px-4 py-2">{{$user->contact ?? 'N/A'}}</div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Current Address</div>
-                                    <div class="px-4 py-2">Beech Creek, PA, Pennsylvania</div>
+                                    <div class="px-4 py-2 font-semibold">Cidade:</div>
+                                    <div class="px-4 py-2">{{$user->city ?? 'N/A'}}</div>
                                 </div>
 
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Email.</div>
+                                    <div class="px-4 py-2 font-semibold">Email:</div>
                                     <div class="px-4 py-2">
-                                        <a class="text-blue-800" href="mailto:jane@example.com">jane@example.com</a>
+                                        <a class="text-blue-800" href="mailto:jane@example.com">{{$user->email}}</a>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-2">
-                                    <div class="px-4 py-2 font-semibold">Birthday</div>
-                                    <div class="px-4 py-2">Feb 06, 1998</div>
+                                    <div class="px-4 py-2 font-semibold">Nascimento:</div>
+                                    <div class="px-4 py-2">{{$user->birth ?? 'N/A'}}</div>
                                 </div>
                             </div>
                         </div>
@@ -161,22 +161,15 @@
                                     <span class="tracking-wide">Posts</span>
                                 </div>
                                 <ul class="list-inside space-y-2">
+                                    @if(count($posts) > 0)
+                                    @foreach($posts as $post)
                                     <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                        <div class="text-teal-600"><a href="{{ route('single.post', $post->id) }}">{{$post->title}}</a></div>
+                                        <div class="text-gray-500 text-xs">{{ $post->created_at->diffForHumans() }}</div>
                                     </li>
-                                    <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
-                                    <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
-                                    <li>
-                                        <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
+                                    @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                             <!-- <div>
