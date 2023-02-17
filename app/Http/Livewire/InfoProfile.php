@@ -45,7 +45,7 @@ class InfoProfile extends Component
 
         $friends = array_merge($friendships1->toArray(), $friendships2->toArray());
 
-        $this->myFriends = User::whereIn('id', $friends)->get()->count();
+        $this->myFriends = User::whereIn('id', $friends)->get();
     }
 
     public function updatePhoto()
