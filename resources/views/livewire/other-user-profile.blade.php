@@ -72,11 +72,13 @@
                             <span>Amigos</span>
                         </div>
                         <div class="grid grid-cols-3">
+                            @foreach($friends as $friend)
                             <div class="text-center my-2">
-                                <img class="h-16 w-16 rounded-full mx-auto" src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg" alt="">
-                                <a href="#" class="text-main-color">Kojstantin</a>
+                                <img class="h-16 w-16 rounded-full mx-auto" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="">
+                                <a href="{{ route('profile.other-user', $friend->id) }}" class="text-main-color">{{$friend->name}}</a>
                             </div>
-                            <div class="text-center my-2">
+                            @endforeach
+                            <!-- <div class="text-center my-2">
                                 <img class="h-16 w-16 rounded-full mx-auto" src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4" alt="">
                                 <a href="#" class="text-main-color">James</a>
                             </div>
@@ -87,7 +89,7 @@
                             <div class="text-center my-2">
                                 <img class="h-16 w-16 rounded-full mx-auto" src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png" alt="">
                                 <a href="#" class="text-main-color">Casey</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- End of friends card -->
