@@ -14,9 +14,7 @@ class InfoProfile extends Component
 {
     use WithFileUploads;
 
-    public $name;
     public $email;
-    public $username;
     public $user;
     public $editData = false;
     public $posts;
@@ -24,6 +22,16 @@ class InfoProfile extends Component
     public $myFriends;
     public $editPhoto;
     public $profileImage;
+    // userData
+    public $name;
+    public $last_name;
+    public $gender;
+    public $username;
+    public $contact;
+    public $city;
+    public $birth;
+    public $description;
+
 
 
     protected $rules = [
@@ -34,9 +42,7 @@ class InfoProfile extends Component
     public function mount($user)
     {
         $this->user = Auth()->user();
-        $this->name = $user->name;
         $this->email = $user->email;
-        $this->username = $user->username;
         $this->posts = Post::where('user_id', $user->id)->get()->count();
         $this->comments = Comment::where('user_id', $user->id)->get()->count();
 
