@@ -18,6 +18,7 @@ class InfoProfile extends Component
     public $email;
     public $username;
     public $user;
+    public $editData = false;
     public $posts;
     public $comments;
     public $myFriends;
@@ -48,6 +49,10 @@ class InfoProfile extends Component
         $this->myFriends = User::whereIn('id', $friends)->get();
     }
 
+    public function changeEditData()
+    {
+        $this->editData = !$this->editData;
+    }
     public function updatePhoto()
     {
         $this->editPhoto = !$this->editPhoto;

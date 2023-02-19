@@ -23,7 +23,7 @@
                         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
                             <div class="py-2 bg-white text-blue-800 text-sm rounded-sm border border-main-color shadow-sm">
                                 <a class="block px-4 py-2 mt-2 text-sm bg-white md:mt-0 focus:text-gray-900 hover:bg-indigo-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Editar Foto</a>
-                                <a class="block px-4 py-2 mt-2 text-sm bg-white md:mt-0 focus:text-gray-900 hover:bg-indigo-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Editar Dados</a>
+                                <a class="block px-4 py-2 mt-2 text-sm bg-white md:mt-0 focus:text-gray-900 hover:bg-indigo-100 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#" wire:click="changeEditData()">{{ $editData ? 'Voltar' : 'Editar Dados'}}</a>
                                 <div class="border-b"></div>
 
                             </div>
@@ -33,6 +33,7 @@
             </div>
         </div>
         <!-- End of Navbar -->
+        @if($editData == false)
 
         <div class="container mx-auto my-5 p-5">
             <div class="md:flex no-wrap md:-mx-2 ">
@@ -43,11 +44,10 @@
                         <div class="image overflow-hidden">
                             <img class="h-auto w-full mx-auto" src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
                         </div>
-                        <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ucfirst($user->name)}}</h1>
-                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                        <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.
-                            Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Descrição:</h3>
+                        <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">
+                            {{$user->description ?? 'N/A'}}
+                        </p>
                         <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                             <!-- <li class="flex items-center py-3">
                                 <span>Status</span>
@@ -188,5 +188,15 @@
                 </div>
             </div>
         </div>
+        @endif
+
+        <!-- EDIT DATA -->
+        @if($editData == true)
+        <div class="container mx-auto my-5 p-5">
+            <div class="md:flex no-wrap md:-mx-2 ">
+                <H1>EDITAR OS DADOS DO PERFIL</H1>
+            </div>
+        </div>
+        @endif
     </div>
 </div>

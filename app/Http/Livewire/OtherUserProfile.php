@@ -24,8 +24,8 @@ class OtherUserProfile extends Component
 
         $users = User::whereIn('id', $friends)->get();
         $this->friends = $users;
-
     }
+
     public function render()
     {
         return view('livewire.other-user-profile');
