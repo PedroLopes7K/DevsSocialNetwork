@@ -15,11 +15,9 @@ class InfoProfile extends Component
 {
     use WithFileUploads;
 
-    public $email;
     public $user;
     public $editData = false;
     public $posts;
-    public $comments;
     public $myFriends;
     public $editPhoto;
     public $profileImage;
@@ -53,9 +51,7 @@ class InfoProfile extends Component
         $this->birth = $this->user->birth;
         $this->description = $this->user->description;
         /////////////////
-        $this->email = $user->email;
-        $this->posts = Post::where('user_id', $user->id)->get()->count();
-        $this->comments = Comment::where('user_id', $user->id)->get()->count();
+        $this->posts = Post::where('user_id', $user->id)->get();
 
 
         $friendships1 = Friendship::where('user_receive', Auth()->user()->id)->where('friends', true)->get()->pluck('user_id');
