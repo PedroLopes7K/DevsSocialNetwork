@@ -128,6 +128,10 @@
                                     <div class="px-4 py-2 font-semibold">Nascimento:</div>
                                     <div class="px-4 py-2">{{$user->birth ?? 'N/A'}}</div>
                                 </div>
+                                <div class="grid grid-cols-2">
+                                    <div class="px-4 py-2 font-semibold">Username:</div>
+                                    <div class="px-4 py-2">{{$user->username ?? 'N/A'}}</div>
+                                </div>
                             </div>
                         </div>
                         <!-- <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
@@ -203,13 +207,13 @@
                         <div class="mr-2">
                             <x-input-label for="name" :value="__('Nome')" />
 
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus wire:model="name" />
 
                         </div>
                         <div>
                             <x-input-label for="last_name" :value="__('Sobrenome')" />
 
-                            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" autofocus />
+                            <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" autofocus wire:model="last_name" />
 
                         </div>
                     </div>
@@ -218,13 +222,13 @@
                         <div class="mr-2">
                             <x-input-label for="gender" :value="__('Genero')" />
 
-                            <x-text-input id="gender" class="block mt-1 w-full" type="text" name="gender" :value="old('gender')" autofocus />
+                            <x-text-input id="gender" class="block mt-1 w-full" type="text" name="gender" :value="old('gender')" autofocus wire:model="gender" />
 
                         </div>
                         <div>
                             <x-input-label for="username" :value="__('Apelido')" />
 
-                            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" autofocus />
+                            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" autofocus wire:model="username" />
 
                         </div>
                     </div>
@@ -233,13 +237,13 @@
                         <div class="mr-2">
                             <x-input-label for="contact" :value="__('Contato')" />
 
-                            <x-text-input id="contact" class="block mt-1 w-full" type="text" name="contact" :value="old('contact')" autofocus />
+                            <x-text-input id="contact" class="block mt-1 w-full" type="text" name="contact" :value="old('contact')" autofocus wire:model="contact" />
 
                         </div>
                         <div>
                             <x-input-label for="city" :value="__('Cidade')" />
 
-                            <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" autofocus />
+                            <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" autofocus wire:model="city" />
 
                         </div>
                     </div>
@@ -254,7 +258,7 @@
                                     <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <input datepicker type="text" id="birth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                            <input datepicker type="text" id="birth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:model="birth" placeholder="Select date">
                         </div>
 
 
@@ -262,13 +266,13 @@
 
                     <div class="mt-4">
                         <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição</label>
-                        <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+                        <textarea id="message" rows="4" wire:model="description" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
 
                     </div>
                     <div class="flex items-center justify-center mt-4">
 
 
-                        <x-primary-button class="ml-4">
+                        <x-primary-button wire:click="updateData" class="ml-4">
                             {{ __('Atualizar Dados') }}
                         </x-primary-button>
                     </div>

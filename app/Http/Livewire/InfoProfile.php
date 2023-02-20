@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Exception;
 
 class InfoProfile extends Component
 {
@@ -39,9 +40,19 @@ class InfoProfile extends Component
         'profileImage.*' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
     ];
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
     public function mount($user)
     {
         $this->user = Auth()->user();
+        $this->name = $this->user->name;
+        $this->last_name = $this->user->last_name;
+        $this->gender = $this->user->gender;
+        $this->username = $this->user->username;
+        $this->contact = $this->user->contact;
+        $this->city = $this->user->city;
+        $this->birth = $this->user->birth;
+        $this->description = $this->user->description;
+        /////////////////
         $this->email = $user->email;
         $this->posts = Post::where('user_id', $user->id)->get()->count();
         $this->comments = Comment::where('user_id', $user->id)->get()->count();
@@ -64,6 +75,7 @@ class InfoProfile extends Component
         $this->editPhoto = !$this->editPhoto;
     }
 
+
     public function sendImage()
     {
         User::where('id', Auth()->user()->id)->update([
@@ -73,6 +85,37 @@ class InfoProfile extends Component
         session()->flash('success', 'Post Criado');
 
         return redirect()->route('dashboard');
+    }
+
+    public function updateData()
+    {
+
+        try {
+            $data = [
+                'name'        =>   $this->name,
+                'last_name'   =>   $this->last_name,
+                'gender'     =>  $this->gender,
+                'username'   =>  $this->username,
+                'contact'    =>  $this->contact,
+                'city'       =>  $this->city,
+                'birth'       =>   $this->birth,
+                'description' =>   $this->description,
+            ];
+            User::where('id', $this->user->id)->update($data);
+
+            session()->flash('success', 'Dados Atualizados');
+
+            $this->emit('refreshComponent');
+            $this->editData = false;
+
+            // return redirect()->route('dashboard');
+        } catch (Exception $e) {
+
+            info($e);
+            $this->reset();
+            session()->flash('danger', 'Erro ao atualizar dados!');
+            // return redirect()->route('dashboard');
+        }
     }
     public function render()
     {
