@@ -17,9 +17,9 @@ class InfoProfile extends Component
 
     public $user;
     public $editData = false;
+    public $editPhoto = false;
     public $posts;
     public $myFriends;
-    public $editPhoto;
     public $profileImage;
     // userData
     public $name;
@@ -66,6 +66,7 @@ class InfoProfile extends Component
     {
         $this->editData = !$this->editData;
     }
+
     public function updatePhoto()
     {
         $this->editPhoto = !$this->editPhoto;

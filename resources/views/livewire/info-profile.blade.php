@@ -49,19 +49,14 @@
                             {{$user->description ?? 'N/A'}}
                         </p>
                         <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-                            <!-- <li class="flex items-center py-3">
-                                <span>Status</span>
-                                <span class="ml-auto"><span class="bg-green-500 py-1 px-2 rounded text-white text-sm">Active</span></span>
-                            </li> -->
+
                             <li class="flex items-center py-3">
                                 <span>Member since</span>
                                 <span class="ml-auto">Nov 07, 2016</span>
                             </li>
                         </ul>
                     </div>
-                    <!-- End of profile card -->
                     <div class="my-4"></div>
-                    <!-- Friends card -->
                     <div class="bg-white p-3 hover:shadow">
                         <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
                             <span class="text-green-500">
@@ -80,12 +75,9 @@
                             @endforeach
                         </div>
                     </div>
-                    <!-- End of friends card -->
                 </div>
-                <!-- Right Side -->
                 <div class="w-full md:w-9/12 mx-2 h-64">
-                    <!-- Profile tab -->
-                    <!-- About Section -->
+
                     <div class="bg-white p-3 shadow-sm rounded-sm">
                         <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                             <span clas="text-green-500">
@@ -134,14 +126,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <button class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
-                            Full Information</button> -->
+
                     </div>
-                    <!-- End of about section -->
 
                     <div class="my-4"></div>
 
-                    <!-- Experience and education -->
                     <div class="bg-white p-3 shadow-sm rounded-sm">
 
                         <div class="grid grid-cols-2">
@@ -149,15 +138,12 @@
 
 
                         </div>
-                        <!-- End of Experience and education grid -->
                     </div>
-                    <!-- End of profile tab -->
                 </div>
             </div>
         </div>
         @endif
 
-        <!-- EDIT DATA -->
         @if($editData == true)
         <div class="container mx-auto my-5 p-5">
             <div class="md:flex no-wrap md:-mx-2 ">
@@ -214,7 +200,7 @@
                     <div class="mt-4  ">
                         <x-input-label for="birth" :value="__('Nascimento')" />
 
-                        <!-- <x-text-input id="contact" class="block mt-1 w-full" type="text" name="contact" :value="old('contact')" autofocus /> -->
+
                         <div class="relative max-w-md">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
