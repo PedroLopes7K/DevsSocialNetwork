@@ -15,7 +15,13 @@
                     <div @click.away="open = false" class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex flex-row items-center space-x-2 w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent hover:bg-blue-800 md:w-auto md:inline md:mt-0 md:ml-4 hover:bg-gray-200 focus:bg-blue-800 focus:outline-none focus:shadow-outline">
                             <span>{{ucfirst($user->name)}}</span>
+                            @if($user->photo != null)
+
                             <img class="inline h-10 w-10 rounded-full" src="{{ asset('storage/' . $user->photo) }}">
+                            @else
+                            <img class="inline h-10 w-10 rounded-full" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png">
+
+                            @endif
                             <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 transition-transform duration-200 transform">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                             </svg>
@@ -69,7 +75,11 @@
                         <div class="grid grid-cols-3">
                             @foreach($myFriends as $friend)
                             <div class="text-center my-2">
+                                @if($friend->photo != null)
+                                <img class="h-16 w-16 rounded-full mx-auto" src="{{ asset('storage/' . $friend->photo) }}" alt="">
+                                @else
                                 <img class="h-16 w-16 rounded-full mx-auto" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="">
+                                @endif
                                 <a href="{{ route('profile.other-user', $friend->id) }}" class="text-main-color">{{$friend->name}}</a>
                             </div>
                             @endforeach

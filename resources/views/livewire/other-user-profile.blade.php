@@ -20,13 +20,17 @@
                 <div class="w-full md:w-3/12 md:mx-2">
                     <div class="bg-white p-3 border-t-4 border-green-400">
                         <div class="image overflow-hidden">
-                            <img class="h-auto w-full mx-auto" src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
+                            @if($user->photo != null)
+
+                            <img class="h-auto w-full mx-auto" src="{{ asset('storage/' . $user->photo) }}" alt="">
+                            @else
+                            <img class="h-auto w-full mx-auto" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="">
+
+                            @endif
                         </div>
                         <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ucfirst($user->name)}}</h1>
-                        <h3 class="text-gray-600 font-lg text-semibold leading-6">Owner at Her Company Inc.</h3>
-                        <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.
-                            Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur non deserunt</p>
+                        <h3 class="text-gray-600 font-lg text-semibold leading-6"> {{ $user->description}}</h3>
+
                         <ul class="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
 
                             <li class="flex items-center py-3">
@@ -48,7 +52,11 @@
                         <div class="grid grid-cols-3">
                             @foreach($friends as $friend)
                             <div class="text-center my-2">
+                                @if($friend->photo != null)
+                                <img class="h-16 w-16 rounded-full mx-auto" src="{{ asset('storage/' . $friend->photo) }}" alt="">
+                                @else
                                 <img class="h-16 w-16 rounded-full mx-auto" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="">
+                                @endif
                                 <a href="{{ route('profile.other-user', $friend->id) }}" class="text-main-color">{{$friend->name}}</a>
                             </div>
                             @endforeach
