@@ -75,6 +75,8 @@ class InfoProfile extends Component
 
     public function sendImage()
     {
+        $this->validate();
+
         User::where('id', Auth()->user()->id)->update([
             'photo' => $this->profileImage->store('images', 'public')
         ]);
