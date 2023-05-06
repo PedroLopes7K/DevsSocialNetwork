@@ -9,7 +9,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard - Bem-vindo(a)') }} Convidado(a)!
+            {{ __('Bem-vindo(a) ao Energy Chanel') }}!
         </h2>
     </x-slot>
     @endif
