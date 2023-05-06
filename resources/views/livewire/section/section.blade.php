@@ -5,7 +5,7 @@
             <div class="p-6 bg-white border-b border-gray-200">
 
                 <div class="mx-2 my-8">
-                    <button href="" wire:click="updateListState" class="bg-purple-500  p-2 text-white text-lg font-bold rounded">{{ $list ? 'Criar Sessão' : 'Listar Sessões'}}</button>
+                    <button href="" wire:click="updateListState" class="bg-amber-400  p-2 text-white text-lg font-bold rounded">{{ $list ? 'Criar Sessão' : 'Listar Sessões'}}</button>
                 </div>
 
 

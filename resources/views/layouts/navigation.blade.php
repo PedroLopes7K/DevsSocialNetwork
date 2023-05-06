@@ -20,9 +20,9 @@
                     <x-nav-link :href="route('my.posts')" :active="request()->routeIs('my.posts')">
                         {{ __('Meus Posts') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('liked.posts')" :active="request()->routeIs('liked.posts')">
+                    <!-- <x-nav-link :href="route('liked.posts')" :active="request()->routeIs('liked.posts')">
                         {{ __('Posts Curtidos') }}
-                    </x-nav-link>
+                    </x-nav-link> -->
 
                     <x-nav-link :href="route('section.index')" :active="request()->routeIs('section.index')">
                         {{ __('Sessões') }}

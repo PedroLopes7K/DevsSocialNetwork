@@ -16,11 +16,5 @@
     </div>
   </div>
 
-  <!-- <div class="py-4 mb-4">
 
-
-
-
-
-  </div> -->
 </x-app-layout>
