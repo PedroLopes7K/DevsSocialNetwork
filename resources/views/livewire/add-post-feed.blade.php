@@ -30,7 +30,7 @@
                     py-1.5
                     text-base
                     font-normal
-                    text-gray-700
+                    text-amber-400
                     bg-white bg-clip-padding
                     border border-solid border-gray-300
                     rounded
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div>
-            <button type="submit" wire:submit.prevent="store" class="bg-purple-500 text-white px-6 py-2 rounded-md">Postar</button>
+            <button type="submit" wire:submit.prevent="store" class="bg-amber-400 text-white px-6 py-2 rounded-md">Postar</button>
         </div>
     </form>
 
