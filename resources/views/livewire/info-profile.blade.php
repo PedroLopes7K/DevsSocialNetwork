@@ -1,6 +1,6 @@
 <div>
     <div class="bg-gray-100">
-        <div class="w-full text-white bg-purple-500">
+        <div class="w-full text-white bg-amber-400">
             <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                 <div class="p-4 flex flex-row items-center justify-between">
                     <a href="#" class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline"> {{ __('Seu Perfil: ') }} {{ucfirst($user->name)}}</a>
@@ -46,7 +46,7 @@
                 <!-- Left Side -->
                 <div class="w-full md:w-3/12 md:mx-2">
                     <!-- Profile Card -->
-                    <div class="bg-white p-3 border-t-4 border-green-400">
+                    <div class="bg-white p-3 border-t-4 border-amber-500">
                         <div class="image overflow-hidden">
                             <img class="h-auto w-full mx-auto" src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg" alt="">
                         </div>
@@ -65,7 +65,7 @@
                     <div class="my-4"></div>
                     <div class="bg-white p-3 hover:shadow">
                         <div class="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
-                            <span class="text-green-500">
+                            <span class="text-amber-400">
                                 <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
@@ -271,7 +271,7 @@
 
                             </div>
                             <div class="mt-2 flex justify-center">
-                                <button wire:click="sendImage" class="bg-purple-500 text-white px-6 py-2 rounded-md">Alterar Foto</button>
+                                <button wire:click="sendImage" class="bg-amber-400 text-white px-6 py-2 rounded-md">Alterar Foto</button>
                             </div>
                         </div>
                     </div>
