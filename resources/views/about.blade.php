@@ -16,6 +16,9 @@
           <p>Um local onde as pessoas poderam discutir sobre projetos e tecnologias no setor de energias renováveis,<br> bem como compartilhar informações confiáveis sobre o tema.</p>
           <p>A intenção é incentivar e orientar a todos no uso dos recursos renováveis e como fazê-lo</p>
 
+
+          <p class="mt-4">Criadores: <b>Pedro Henrique, Victor Braz, Victor Pacelli, André Garcia, Felipe, Babi Lobo, Jessica Junqueira, Rapha.</b></p>
+
           <div class="flex my-4 justify-between w-4/6 mx-auto">
             <!-- <div>
 
