@@ -8,6 +8,7 @@ use App\Http\Controllers\OtherUsersController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,5 +58,8 @@ Route::get('/my-friends', [MyFriendsController::class, 'index'])->middleware(['a
 
 // CHAT CONTROLLER
 Route::get('/chats', [ChatController::class, 'index'])->middleware(['auth', 'verified'])->name('chats.index');
+
+// APPLICATION SECTIONS CONTROLLER
+Route::get('/all-sections', [ApplicationController::class, 'index'])->middleware(['auth', 'verified'])->name('application.section');
 
 require __DIR__ . '/auth.php';
