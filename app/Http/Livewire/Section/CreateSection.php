@@ -11,7 +11,7 @@ class CreateSection extends Component
     public function store()
     {
         Section::create(['name' => $this->name]);
-        session()->flash('success', 'sessão criada!');
+        session()->flash('success', 'Tópico Criado!');
         return redirect()->route('section.index');
     }
     public function render()
