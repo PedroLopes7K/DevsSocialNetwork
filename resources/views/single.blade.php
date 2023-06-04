@@ -45,7 +45,7 @@
                             <span class="text-lg font-bold">{{ $post->user->username }}</span>
                             <div>
                                 <span class="text-lg font-thin">{{ $post->created_at->diffForHumans() }}</span>
-                                <p class="text-lg font-bold">Sessão: <b>{{ $post->sections->name }}</b></p>
+                                <p class="text-lg font-bold">Sessão: <b>{{ $post->sections->name ?? 'Nenhuma'}}</b></p>
                             </div>
                         </div>
                     </div>
