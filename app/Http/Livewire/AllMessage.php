@@ -12,7 +12,6 @@ class AllMessage extends Component
 
     public function render()
     {
-
         $messages = Message::where('chat_id', $this->chatID)->get();
         return view('livewire.all-message', compact('messages'));
     }
